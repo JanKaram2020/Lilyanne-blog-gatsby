@@ -52,7 +52,7 @@ module.exports = {
       options: {
         locales: `./i18n/react-i18next`,
         i18nextOptions: {
-          ns: ['404'],
+          ns: ['404', 'Nav'],
         },
       },
     },

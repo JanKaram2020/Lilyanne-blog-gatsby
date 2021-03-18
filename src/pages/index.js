@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { LocalizedLink, LocalesList, useLocalization } from 'gatsby-theme-i18n';
 import Layout from '../components/Layout';
@@ -12,12 +12,7 @@ const IndexPage = ({ data }) => {
   const { t } = useTranslation('404');
   return (
     <main>
-      <Link to="/ar">Arabic</Link>
-      <Link to="/">English</Link>
-      <Link to="/fr">French</Link>
-
       <Layout>
-        <h1>{t('notFound')}</h1>
         <LocalesList />
         <LocalizedLink to="/404">{t('notFound')}</LocalizedLink>
         {posts.map((post, i) => (
