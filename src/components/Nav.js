@@ -2,6 +2,7 @@ import { Link } from 'gatsby';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
+import Logo from './Logo';
 
 const Nav = () => {
   const { t } = useTranslation('Nav');
@@ -12,6 +13,9 @@ const Nav = () => {
       <Link to="/">English</Link>
       <Link to="/fr">français</Link>
       <br />
+      <LocalizedLink style={{ width: '20px' }} to="/">
+        <Logo color="red" />
+      </LocalizedLink>
       <LocalizedLink to="/">{t('home')}</LocalizedLink>
       <LocalizedLink to="/about">{t('about')}</LocalizedLink>
       <LocalizedLink to="/blog">{t('blog')}</LocalizedLink>
