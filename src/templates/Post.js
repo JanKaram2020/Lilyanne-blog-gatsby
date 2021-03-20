@@ -1,0 +1,1 @@
+const PostPage = ({ data }) => <>{data}</>;

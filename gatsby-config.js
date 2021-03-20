@@ -13,7 +13,6 @@ module.exports = {
         dataset: 'production',
       },
     },
-    'gatsby-plugin-styled-components',
     'gatsby-plugin-gatsby-cloud',
     'gatsby-plugin-image',
     {
@@ -56,5 +55,6 @@ module.exports = {
         },
       },
     },
+    'gatsby-plugin-theme-ui',
   ],
 };

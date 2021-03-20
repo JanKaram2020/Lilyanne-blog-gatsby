@@ -1,4 +1,5 @@
 import React from 'react';
+import { BaseStyles } from 'theme-ui';
 import PortableText from './PortableText';
 
 const Post = ({ post, lang }) => {
@@ -15,7 +16,7 @@ const Post = ({ post, lang }) => {
   const author = post.author.name[lang];
   if (lang === 'ar') {
     return (
-      <div className="arabic-text">
+      <div>
         <h1>البوست ده بالعربي</h1>
         <h2> العنوان هو {title}</h2>
         <h3>{author}</h3>
