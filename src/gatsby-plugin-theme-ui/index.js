@@ -152,7 +152,9 @@ export default {
       marginTop: 0,
       marginBottom: 3,
     },
-    img: {},
+    img: {
+      maxWidth: '100%',
+    },
     pre: {
       borderColor: 'gray',
       borderStyle: 1,
