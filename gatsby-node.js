@@ -3,8 +3,8 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/Post.js`);
 
-  const result = await graphql`
-    query MyQuery {
+  const result = await graphql(`
+    query {
       allSanityPost {
         totalCount
         nodes {
@@ -32,21 +32,23 @@ exports.createPages = async ({ graphql, actions }) => {
             en
             fr
           }
+          slug {
+            current
+          }
         }
       }
     }
-  `;
-
+  `);
   if (result.errors) {
     throw result.errors;
   }
 
   const posts = result.data.allSanityPost.nodes || [];
-  posts.forEach((edge, index) => {
+  posts.forEach((node) => {
     createPage({
-      path,
+      path: `post/${node.slug.current}`,
       component: blogPostTemplate,
-      context: { slug: edge.node.slug.current },
+      context: { slug: node.slug.current },
     });
   });
 };

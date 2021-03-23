@@ -1,7 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useTranslation } from 'react-i18next';
-import { LocalizedLink, LocalesList, useLocalization } from 'gatsby-theme-i18n';
+import { useLocalization } from 'gatsby-theme-i18n';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 
@@ -9,12 +8,9 @@ import Post from '../components/Post';
 const IndexPage = ({ data }) => {
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
-  const { t } = useTranslation('404');
   return (
-    <main>
+    <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <Layout>
-        <LocalesList />
-        <LocalizedLink to="/404">{t('notFound')}</LocalizedLink>
         {posts.map((post, i) => (
           <div key={`${i} ${post._id}`}>
             {locale === 'fr' && post.body._rawFr ? (

@@ -1,5 +1,7 @@
+/** @jsx jsx */
 import React from 'react';
-import { BaseStyles } from 'theme-ui';
+import { BaseStyles, jsx, Divider } from 'theme-ui';
+
 import PortableText from './PortableText';
 
 const Post = ({ post, lang }) => {
@@ -16,35 +18,35 @@ const Post = ({ post, lang }) => {
   const author = post.author.name[lang];
   if (lang === 'ar') {
     return (
-      <div>
-        <h1>البوست ده بالعربي</h1>
-        <h2> العنوان هو {title}</h2>
-        <h3>{author}</h3>
+      <BaseStyles>
+        <article>
+          <h1>البوست ده بالعربي</h1>
+          <h2> العنوان هو {title}</h2>
+          <h3>{author}</h3>
+          {categories.map((category, i) => (
+            <h3 key={i}>{category.title[lang]}</h3>
+          ))}
+          <PortableText blocks={text} />
+          <Divider />
+        </article>
+      </BaseStyles>
+    );
+  }
+  return (
+    <BaseStyles>
+      <article>
+        <h1> this post in {lang}</h1>
+        <h2> English title is {title}</h2>
+        <h3>
+          {author} {post.categories[0].title[lang]}
+        </h3>
         {categories.map((category, i) => (
           <h3 key={i}>{category.title[lang]}</h3>
         ))}
         <PortableText blocks={text} />
-        <h1 style={{ textAlign: 'center' }}>
-          ------------------------------------------------------------
-        </h1>
-      </div>
-    );
-  }
-  return (
-    <>
-      <h1> this post in {lang}</h1>
-      <h2> English title is {title}</h2>
-      <h3>
-        {author} {post.categories[0].title[lang]}
-      </h3>
-      {categories.map((category, i) => (
-        <h3 key={i}>{category.title[lang]}</h3>
-      ))}
-      <PortableText blocks={text} />
-      <h1 style={{ textAlign: 'center' }}>
-        ------------------------------------------------------------
-      </h1>
-    </>
+      </article>
+      <Divider />
+    </BaseStyles>
   );
 };
 export default Post;
