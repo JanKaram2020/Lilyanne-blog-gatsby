@@ -63,6 +63,15 @@ export const query = graphql`
           en
           fr
         }
+        mainImage {
+          asset {
+            gatsbyImageData(
+              width: 900
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+          }
+        }
       }
     }
   }

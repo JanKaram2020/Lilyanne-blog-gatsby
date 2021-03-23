@@ -4,8 +4,9 @@ import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 
-const PostPage = ({ data }) => {
+const PostPage = ({ data, slug }) => {
   console.log(data);
+  console.log(slug);
   const post = data.sanityPost;
   const { locale } = useLocalization();
   console.log(post);
@@ -17,13 +18,28 @@ const PostPage = ({ data }) => {
         ) : (
           ''
         )}
+        {locale === 'fr' && post.body._rawFr === null ? (
+          <h1>French is not avaliable yet</h1>
+        ) : (
+          ''
+        )}
         {locale === 'en' && post.body._rawEn ? (
           <Post post={post} lang="en" />
         ) : (
           ''
         )}
+        {locale === 'en' && post.body._rawEn === null ? (
+          <h1>English is not avaliable yet</h1>
+        ) : (
+          ''
+        )}
         {locale === 'ar' && post.body._rawAr ? (
           <Post post={post} lang="ar" />
+        ) : (
+          ''
+        )}
+        {locale === 'ar' && post.body._rawAr === null ? (
+          <h1>النسخة العربية غير متوفرة</h1>
         ) : (
           ''
         )}
@@ -58,6 +74,15 @@ export const query = graphql`
         ar
         en
         fr
+      }
+      mainImage {
+        asset {
+          gatsbyImageData(
+            width: 900
+            placeholder: BLURRED
+            formats: [AUTO, WEBP, AVIF]
+          )
+        }
       }
     }
   }

@@ -1,12 +1,15 @@
+import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
+import Layout from '../components/Layout';
 
 const ContactPage = () => {
-  console.log('Contact Page');
+  const { locale } = useLocalization();
   return (
-    <>
-      <h1> Contact Page</h1>
-    </>
+    <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
+      <Layout>
+        <h1> ContactPage</h1>
+      </Layout>
+    </main>
   );
 };
-
 export default ContactPage;

@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import React from 'react';
 import { BaseStyles, jsx, Divider } from 'theme-ui';
+import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import PortableText from './PortableText';
 
@@ -16,33 +17,17 @@ const Post = ({ post, lang }) => {
   const { categories } = post;
   const title = post.title[lang];
   const author = post.author.name[lang];
-  if (lang === 'ar') {
-    return (
-      <BaseStyles>
-        <article>
-          <h1>البوست ده بالعربي</h1>
-          <h2> العنوان هو {title}</h2>
-          <h3>{author}</h3>
-          {categories.map((category, i) => (
-            <h3 key={i}>{category.title[lang]}</h3>
-          ))}
-          <PortableText blocks={text} />
-          <Divider />
-        </article>
-      </BaseStyles>
-    );
-  }
+  console.log(post.mainImage.asset);
+  const image = getImage(post.mainImage.asset);
   return (
     <BaseStyles>
       <article>
-        <h1> this post in {lang}</h1>
-        <h2> English title is {title}</h2>
-        <h3>
-          {author} {post.categories[0].title[lang]}
-        </h3>
+        <h2>{title}</h2>
+        <h3>{author}</h3>
         {categories.map((category, i) => (
           <h3 key={i}>{category.title[lang]}</h3>
         ))}
+        <GatsbyImage image={image} alt={title} />
         <PortableText blocks={text} />
       </article>
       <Divider />

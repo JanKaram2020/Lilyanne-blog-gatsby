@@ -42,7 +42,6 @@ exports.createPages = async ({ graphql, actions }) => {
   if (result.errors) {
     throw result.errors;
   }
-
   const posts = result.data.allSanityPost.nodes || [];
   posts.forEach((node) => {
     createPage({

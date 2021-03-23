@@ -1,12 +1,15 @@
+import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
+import Layout from '../components/Layout';
 
-const BlogPage = () => {
-  console.log('Blog Page');
+const blogPage = () => {
+  const { locale } = useLocalization();
   return (
-    <>
-      <h1> Blog Page</h1>
-    </>
+    <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
+      <Layout>
+        <h1> blogPage</h1>
+      </Layout>
+    </main>
   );
 };
-
-export default BlogPage;
+export default blogPage;

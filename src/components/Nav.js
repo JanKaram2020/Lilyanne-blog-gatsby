@@ -6,7 +6,7 @@ import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
 import ColorButton from './ColorButton';
 import Logo from './Logo';
 
-const Nav = ({}) => {
+const Nav = () => {
   const { locale } = useLocalization();
   const { t } = useTranslation('Nav');
   const [colorMode] = useColorMode();
@@ -38,17 +38,17 @@ const Nav = ({}) => {
             width="100px"
           />
         </NavLink>
-        <NavLink as={LocalizedLink} to="/">
-          {t('home')}
-        </NavLink>
-        <NavLink as={LocalizedLink} to="/about">
-          {t('about')}
-        </NavLink>
         <NavLink as={LocalizedLink} to="/blog">
           {t('blog')}
         </NavLink>
         <NavLink as={LocalizedLink} to="/categories">
           {t('categories')}
+        </NavLink>
+        <NavLink as={LocalizedLink} to="/about">
+          {t('about')}
+        </NavLink>
+        <NavLink as={LocalizedLink} to="/contact">
+          {t('contact')}
         </NavLink>
       </Flex>
       <Flex
