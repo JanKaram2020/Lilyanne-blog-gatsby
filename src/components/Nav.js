@@ -1,9 +1,9 @@
-/** @jsx jsx */
-import { jsx, Flex, NavLink, useColorMode } from 'theme-ui';
+import React from 'react';
+import { Flex, NavLink, useColorMode } from 'theme-ui';
 import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
-import ColorButton from './ColorButton';
+import ColorModeToggle from './ColorButton';
 import Logo from './Logo';
 
 const Nav = () => {
@@ -14,12 +14,14 @@ const Nav = () => {
     <Flex
       as="nav"
       sx={{
+        bg: 'darken',
+        padding: '1px 0px 10px 10px',
         alignItems: 'center',
         justifyItems: 'center',
+        alignContent: 'center',
         justifyContent: 'space-between',
-        gap: '10px',
         flexWrap: 'wrap',
-        padding: '10px',
+        flexDirection: ['column', 'row'],
       }}
     >
       <Flex
@@ -29,14 +31,22 @@ const Nav = () => {
           justifyContent: 'space-between',
           gap: '10px',
           flexWrap: 'wrap',
-          padding: '1px 0px 10px 10px',
+          flexDirection: 'row',
         }}
       >
         <NavLink as={LocalizedLink} to="/">
-          <Logo
-            color={colorMode === 'default' ? '#ff613c' : '#3cf'}
-            width="100px"
-          />
+          <Flex
+            sx={{
+              width: ['100px', '125px', '150px'],
+              display: 'inline-flex',
+              direction: 'ltr',
+              alignItems: 'center',
+              justifyItems: 'center',
+              paddingTop: '5px',
+            }}
+          >
+            <Logo color={colorMode === 'default' ? '#ff613c' : '#3cf'} />
+          </Flex>
         </NavLink>
         <NavLink as={LocalizedLink} to="/blog">
           {t('blog')}
@@ -60,28 +70,26 @@ const Nav = () => {
           flexWrap: 'wrap',
         }}
       >
-        {locale === 'ar' ? (
-          ''
-        ) : (
-          <NavLink as={Link} to="/ar">
+        {locale !== 'ar' && (
+          <NavLink as={Link} variant="small" to="/ar">
             عربي
           </NavLink>
         )}
-        {locale === 'en' ? (
-          ''
-        ) : (
-          <NavLink as={Link} to="/">
+        {locale !== 'en' && (
+          <NavLink as={Link} variant="small" to="/">
             English
           </NavLink>
         )}
-        {locale === 'fr' ? (
-          ''
-        ) : (
-          <NavLink as={Link} to="/fr">
+        {locale !== 'fr' && (
+          <NavLink as={Link} variant="small" to="/fr">
             français
           </NavLink>
         )}
-        <ColorButton />
+        <ColorModeToggle>
+          <NavLink as={Flex} variant="small">
+            {t('toggle')}
+          </NavLink>
+        </ColorModeToggle>
       </Flex>
     </Flex>
   );

@@ -14,7 +14,7 @@ export default {
     darken: '#F7F7F7',
     modes: {
       dark: {
-        text: '#fff',
+        text: '#ececec',
         background: '#060606',
         primary: '#3cf',
         secondary: '#e0f',
@@ -22,7 +22,7 @@ export default {
         highlight: '#29112c',
         gray: '#999',
         accent: '#cee5ff',
-        darken: '#3b3b3b',
+        darken: '#262626',
       },
     },
   },
@@ -71,7 +71,6 @@ export default {
       fontSize: 1,
       fontFamily: 'body',
       lineHeight: 'body',
-      px: '2',
     },
     p: {
       color: 'text',
@@ -279,6 +278,10 @@ export default {
       color: 'text',
       ':hover': {
         color: 'primary',
+      },
+      fontSize: [1, 2],
+      small: {
+        fontSize: [0, 1],
       },
     },
   },

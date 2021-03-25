@@ -1,57 +1,91 @@
 import React from 'react';
 import { LocalizedLink } from 'gatsby-theme-i18n';
-import { useColorMode } from 'theme-ui';
+import { useTranslation } from 'react-i18next';
+import { useColorMode, Box, Flex, NavLink } from 'theme-ui';
 import Logo from './Logo';
 
 const Footer = () => {
+  const { t } = useTranslation('Nav');
   const [colorMode] = useColorMode();
   return (
-    <footer>
-      <div>
+    <Flex
+      as="footer"
+      sx={{
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyItems: 'center',
+        bg: 'darken',
+        p: '2rem 0 2rem 0',
+      }}
+    >
+      <Flex
+        sx={{
+          width: ['350px', '450px', '550px'],
+          direction: 'ltr',
+          position: 'relative',
+          left: '22px',
+        }}
+      >
         <Logo color={colorMode === 'default' ? '#ff613c' : '#3cf'} />
-      </div>
-      <div>
-        <section>
-          <ul>
-            <li>
-              <LocalizedLink to="/">Home</LocalizedLink>
-            </li>
-            <li>
-              <LocalizedLink to="/about">About</LocalizedLink>
-            </li>
-            <li>
-              <LocalizedLink to="/blog">Blog</LocalizedLink>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <ul>
-            <li>
-              <LocalizedLink to="/blog">Latest Stories</LocalizedLink>
-            </li>
-            <li>
-              <LocalizedLink to="/contact">Contact</LocalizedLink>
-            </li>
-          </ul>
-        </section>
-        <section>
-          <ul>
-            <li>
-              <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Facebook
-              </a>
-            </li>
-            <li>
-              <LocalizedLink to="/contact">Contact</LocalizedLink>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </footer>
+      </Flex>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: ['column', 'column', 'row'],
+          justifyContent: ['flex-start', 'flex-start', 'space-between'],
+          gap: ['10px', '10px', '10rem', '20rem'],
+        }}
+      >
+        <Flex sx={{ flexDirection: 'column' }}>
+          <NavLink as={LocalizedLink} to="/blog">
+            {t('blog')}
+          </NavLink>
+          <NavLink as={LocalizedLink} to="/categories">
+            {t('categories')}
+          </NavLink>
+          <NavLink as={LocalizedLink} to="/about">
+            {t('about')}
+          </NavLink>
+          <NavLink as={LocalizedLink} to="/contact">
+            {t('contact')}
+          </NavLink>
+        </Flex>
+        <Flex sx={{ flexDirection: 'column' }}>
+          <NavLink as={LocalizedLink} to="/blog">
+            {t('Latest Stories')}
+          </NavLink>
+          <NavLink as={LocalizedLink} to="/contact">
+            {t('contact')}
+          </NavLink>
+        </Flex>
+        <Flex sx={{ flexDirection: 'column' }}>
+          <NavLink
+            as="a"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Facebook
+          </NavLink>
+          <NavLink
+            as="a"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Facebook
+          </NavLink>
+          <NavLink
+            as="a"
+            href="https://www.facebook.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Facebook
+          </NavLink>
+        </Flex>
+      </Box>
+    </Flex>
   );
 };
 export default Footer;

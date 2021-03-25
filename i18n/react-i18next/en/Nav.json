@@ -3,5 +3,6 @@
   "about": "about",
   "blog": "blog",
   "categories": "categories",
-  "contact": "contact"
+  "contact": "contact",
+  "toggle": "toggle Mode"
 }

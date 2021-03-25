@@ -6,12 +6,15 @@ import { jsx, Styled } from 'theme-ui';
 import Footer from './Footer';
 import Nav from './Nav';
 
-const Layout = ({ children }) => (
-  // eslint-disable-next-line react/jsx-pascal-case
-  <Styled.root>
-    <Nav />
-    {children}
-    <Footer />
-  </Styled.root>
-);
+const Layout = ({ children }) => {
+  const { locale } = useLocalization();
+  return (
+    // eslint-disable-next-line react/jsx-pascal-case
+    <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
+      <Nav />
+      {children}
+      <Footer />
+    </main>
+  );
+};
 export default Layout;

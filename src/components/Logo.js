@@ -1,17 +1,8 @@
 import React from 'react';
 
-function Logo({ color, width }) {
+function Logo({ color }) {
   return (
-    <div
-      style={{
-        width: `${width || '200px'}`,
-        display: 'inline-flex',
-        direction: 'ltr',
-        alignItems: 'center',
-        justifyItems: 'center',
-        marginTop: '6px',
-      }}
-    >
+    <>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 877.65 437.95">
         <path
           fill="none"
@@ -99,7 +90,7 @@ function Logo({ color, width }) {
           </tspan>
         </text>
       </svg>
-    </div>
+    </>
   );
 }
 

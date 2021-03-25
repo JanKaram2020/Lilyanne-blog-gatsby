@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import React from 'react';
-import { BaseStyles, jsx, Divider } from 'theme-ui';
+import { BaseStyles, jsx, Divider, useColorMode } from 'theme-ui';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import PortableText from './PortableText';
 
 const Post = ({ post, lang }) => {
+  const [colorMode] = useColorMode();
   let text;
   if (lang === 'en') {
     text = post.body._rawEn;
@@ -27,10 +27,16 @@ const Post = ({ post, lang }) => {
         {categories.map((category, i) => (
           <h3 key={i}>{category.title[lang]}</h3>
         ))}
-        <GatsbyImage image={image} alt={title} />
+        <GatsbyImage
+          image={image}
+          alt={title}
+          sx={{
+            filter: colorMode === 'dark' && 'brightness(85%)',
+          }}
+        />
         <PortableText blocks={text} />
+        <Divider />
       </article>
-      <Divider />
     </BaseStyles>
   );
 };
