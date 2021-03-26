@@ -4,6 +4,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
 import { Grid, Flex, Box, jsx, useColorMode } from 'theme-ui';
+import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 
@@ -16,52 +17,7 @@ const IndexPage = ({ data }) => {
   const posts = data.allSanityPost.nodes;
   return (
     <Layout>
-      <Grid
-        sx={{
-          boxSizing: 'border-box',
-          display: 'grid',
-          gridTemplateColumns: ['1fr', '1fr 1fr'],
-          gridTemplateRows: '1fr',
-          height: '88vh',
-        }}
-      >
-        {/* first box image will cover the whole grid area */}
-
-        <StaticImage
-          src="https://files.elfann.com/imagine/pictures_728_400/1410177968_1512471_10152201219780947_6802410849237570943_n.jpg"
-          alt="Lilyanne Hany"
-          layout="fullWidth"
-          sx={{ gridArea: ['1/1/1/1', '1 / 1 / 2 / 3'] }}
-        />
-
-        {/* second box gradient will cover the whole grid area */}
-        <Box
-          sx={{
-            gridArea: ['1 / 1 / 1 / 1', '1 / 1 / 2 / 3'],
-            zIndex: 2,
-            maxWidth: '100%',
-            background: `linear-gradient(90deg,${
-              dark ? '#33ccff70' : '#ff613c7a'
-            } 30%,rgba(255,255,255,0) 100%)`,
-          }}
-        />
-        {/* third box gradient will cover the whole grid area */}
-
-        <Box
-          sx={{
-            gridArea: ['1/1/2/3', '1/1/2/3', '1/1/2/2', '1/1/2/2'],
-            zIndex: 3,
-          }}
-        >
-          <StaticImage
-            src="https://files.elfann.com/imagine/pictures_728_400/1410177968_1512471_10152201219780947_6802410849237570943_n.jpg"
-            alt="Lilyanne Hany"
-            placeholder="blurred"
-            layout="fixed"
-            style={{ width: '100%', height: '100%' }}
-          />
-        </Box>
-      </Grid>
+      <Hero />
       {posts.map((post, i) => (
         <Flex
           key={`${i} ${post._id}`}

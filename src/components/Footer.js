@@ -1,12 +1,11 @@
 import React from 'react';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import { useTranslation } from 'react-i18next';
-import { useColorMode, Box, Flex, NavLink } from 'theme-ui';
+import { Box, Flex, NavLink } from 'theme-ui';
 import Logo from './Logo';
 
 const Footer = () => {
   const { t } = useTranslation('Nav');
-  const [colorMode] = useColorMode();
   return (
     <Flex
       as="footer"
@@ -20,13 +19,13 @@ const Footer = () => {
     >
       <Flex
         sx={{
-          width: ['350px', '450px', '550px'],
+          width: ['300px', '350px', '400px'],
           direction: 'ltr',
           position: 'relative',
           left: '22px',
         }}
       >
-        <Logo color={colorMode === 'default' ? '#ff613c' : '#3cf'} />
+        <Logo />
       </Flex>
       <Box
         sx={{

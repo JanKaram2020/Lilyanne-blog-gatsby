@@ -1,6 +1,11 @@
 import React from 'react';
+import { useColorMode } from 'theme-ui';
+import Theme from '../gatsby-plugin-theme-ui/index';
 
-function Logo({ color }) {
+function Logo() {
+  const [colorMode] = useColorMode();
+  const dark = colorMode === 'dark';
+  const color = dark ? Theme.colors.modes.dark.primary : Theme.colors.primary;
   return (
     <>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 877.65 437.95">

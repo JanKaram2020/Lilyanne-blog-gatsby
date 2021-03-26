@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, NavLink, useColorMode } from 'theme-ui';
+import { Flex, NavLink } from 'theme-ui';
 import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
@@ -9,7 +9,6 @@ import Logo from './Logo';
 const Nav = () => {
   const { locale } = useLocalization();
   const { t } = useTranslation('Nav');
-  const [colorMode] = useColorMode();
   return (
     <Flex
       as="nav"
@@ -45,7 +44,7 @@ const Nav = () => {
               paddingTop: '5px',
             }}
           >
-            <Logo color={colorMode === 'default' ? '#ff613c' : '#3cf'} />
+            <Logo />
           </Flex>
         </NavLink>
         <NavLink as={LocalizedLink} to="/blog">

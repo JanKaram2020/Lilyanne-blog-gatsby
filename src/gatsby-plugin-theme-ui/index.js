@@ -1,3 +1,5 @@
+import './Font.css';
+
 export default {
   borders: ['1px'],
   borderStyles: ['solid', 'dashed'],
@@ -28,7 +30,7 @@ export default {
   },
   fonts: {
     body: 'system-ui, sans-serif',
-    heading: 'system-ui, sans-serif',
+    heading: 'Pristina-Regular, Pristina,system-ui, sans-serif',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [
@@ -89,6 +91,7 @@ export default {
       color: 'secondary',
     },
     h1: {
+      fontFamily: 'heading',
       color: 'text',
       fontSize: 7,
       fontWeight: 'heading',
@@ -102,6 +105,7 @@ export default {
     h2: {
       color: 'text',
       fontSize: 6,
+      fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
       marginTop: 0,
@@ -113,6 +117,7 @@ export default {
     h3: {
       color: 'text',
       fontSize: 5,
+      fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
       marginTop: 0,
@@ -124,6 +129,7 @@ export default {
     h4: {
       color: 'text',
       fontSize: 4,
+      fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
       marginTop: 0,
@@ -135,6 +141,7 @@ export default {
     h5: {
       color: 'text',
       fontSize: 3,
+      fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
       marginTop: 0,
@@ -146,6 +153,7 @@ export default {
     h6: {
       color: 'text',
       fontSize: 2,
+      fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
       marginTop: 0,
@@ -276,6 +284,7 @@ export default {
   links: {
     nav: {
       color: 'text',
+      fontFamily: 'heading',
       ':hover': {
         color: 'primary',
       },
