@@ -1,6 +1,5 @@
 @font-face {
     font-family: Pristina;
-src: local("Pristina-Regular"),
-local("Pristina"),
-url(pristina.ttf);
+    src: local("Pristina-Regular"), local("Pristina"), url(pristina.ttf);
+    font-display: swap;
 }

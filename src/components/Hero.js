@@ -23,7 +23,11 @@ const Hero = () => {
         src="../images/hero.jpg"
         alt="Lilyanne Hany"
         layout="fullWidth"
-        sx={{ gridArea: '1 / 1 / 2 / 3', zIndex: 1 }}
+        sx={{
+          gridArea: '1 / 1 / 2 / 3',
+          zIndex: 1,
+          filter: colorMode === 'dark' && 'brightness(85%)',
+        }}
       />
 
       {/* second box gradient will cover the whole grid area */}

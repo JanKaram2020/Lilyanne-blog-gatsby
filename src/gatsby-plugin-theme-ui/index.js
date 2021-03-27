@@ -285,13 +285,22 @@ export default {
     nav: {
       color: 'text',
       fontFamily: 'heading',
+      fontSize: 3,
       ':hover': {
         color: 'primary',
       },
-      fontSize: [1, 2],
-      small: {
-        fontSize: [0, 1],
+      '&[aria-current]': {
+        color: 'primary',
       },
+    },
+    footer: {
+      color: 'text',
+      fontFamily: 'heading',
+      fontSize: 3,
+      ':hover': {
+        color: 'primary',
+      },
+      textDecoration: 'none',
     },
   },
   images: {

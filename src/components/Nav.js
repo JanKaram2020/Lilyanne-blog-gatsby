@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flex, NavLink } from 'theme-ui';
+/** @jsx jsx */
+import { Flex, NavLink, jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
@@ -28,7 +28,7 @@ const Nav = () => {
           alignItems: 'center',
           justifyItems: 'center',
           justifyContent: 'space-between',
-          gap: '10px',
+          gap: ['4px', '10px'],
           flexWrap: 'wrap',
           flexDirection: 'row',
         }}
@@ -47,7 +47,7 @@ const Nav = () => {
             <Logo />
           </Flex>
         </NavLink>
-        <NavLink as={LocalizedLink} to="/blog">
+        <NavLink as={LocalizedLink} to="/blog" activeClassName="active">
           {t('blog')}
         </NavLink>
         <NavLink as={LocalizedLink} to="/categories">
@@ -70,24 +70,22 @@ const Nav = () => {
         }}
       >
         {locale !== 'ar' && (
-          <NavLink as={Link} variant="small" to="/ar">
+          <NavLink as={Link} to="/ar">
             عربي
           </NavLink>
         )}
         {locale !== 'en' && (
-          <NavLink as={Link} variant="small" to="/">
+          <NavLink as={Link} to="/">
             English
           </NavLink>
         )}
         {locale !== 'fr' && (
-          <NavLink as={Link} variant="small" to="/fr">
+          <NavLink as={Link} to="/fr">
             français
           </NavLink>
         )}
         <ColorModeToggle>
-          <NavLink as={Flex} variant="small">
-            {t('toggle')}
-          </NavLink>
+          <NavLink as={Flex}>{t('toggle')}</NavLink>
         </ColorModeToggle>
       </Flex>
     </Flex>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import { useTranslation } from 'react-i18next';
-import { Box, Flex, NavLink } from 'theme-ui';
+import { Box, Flex, Link } from 'theme-ui';
 import Logo from './Logo';
 
 const Footer = () => {
@@ -36,52 +36,52 @@ const Footer = () => {
         }}
       >
         <Flex sx={{ flexDirection: 'column' }}>
-          <NavLink as={LocalizedLink} to="/blog">
+          <Link variant="footer" as={LocalizedLink} to="/blog">
             {t('blog')}
-          </NavLink>
-          <NavLink as={LocalizedLink} to="/categories">
+          </Link>
+          <Link variant="footer" as={LocalizedLink} to="/categories">
             {t('categories')}
-          </NavLink>
-          <NavLink as={LocalizedLink} to="/about">
+          </Link>
+          <Link variant="footer" as={LocalizedLink} to="/about">
             {t('about')}
-          </NavLink>
-          <NavLink as={LocalizedLink} to="/contact">
+          </Link>
+          <Link variant="footer" as={LocalizedLink} to="/contact">
             {t('contact')}
-          </NavLink>
+          </Link>
         </Flex>
         <Flex sx={{ flexDirection: 'column' }}>
-          <NavLink as={LocalizedLink} to="/blog">
+          <Link variant="footer" as={LocalizedLink} to="/blog">
             {t('Latest Stories')}
-          </NavLink>
-          <NavLink as={LocalizedLink} to="/contact">
+          </Link>
+          <Link variant="footer" as={LocalizedLink} to="/contact">
             {t('contact')}
-          </NavLink>
+          </Link>
         </Flex>
         <Flex sx={{ flexDirection: 'column' }}>
-          <NavLink
-            as="a"
+          <Link
+            variant="footer"
             href="https://www.facebook.com/"
             target="_blank"
             rel="noreferrer"
           >
             Facebook
-          </NavLink>
-          <NavLink
-            as="a"
+          </Link>
+          <Link
+            variant="footer"
             href="https://www.facebook.com/"
             target="_blank"
             rel="noreferrer"
           >
             Facebook
-          </NavLink>
-          <NavLink
-            as="a"
+          </Link>
+          <Link
+            variant="footer"
             href="https://www.facebook.com/"
             target="_blank"
             rel="noreferrer"
           >
             Facebook
-          </NavLink>
+          </Link>
         </Flex>
       </Box>
     </Flex>
