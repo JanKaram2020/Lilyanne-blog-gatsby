@@ -1,7 +1,7 @@
-/** @jsx jsx */
+import React from 'react';
 import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
-import { Flex, jsx } from 'theme-ui';
+import { Flex } from 'theme-ui';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import Post from '../components/Post';

@@ -21,7 +21,15 @@ const Post = ({ post, lang }) => {
   const image = getImage(post.mainImage.asset);
   console.log(image);
   return (
-    <Flex as="article" sx={{ flexDirection: 'column', width: '500px' }}>
+    <Flex
+      as="article"
+      sx={{
+        flexDirection: 'column',
+        maxWidth: '500px',
+        py: 20,
+        mx: 20,
+      }}
+    >
       <BaseStyles>
         <h2>{title}</h2>
         <h3>{author}</h3>
