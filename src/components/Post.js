@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { BaseStyles, jsx, Divider, useColorMode } from 'theme-ui';
+import { BaseStyles, jsx, Divider, useColorMode, Flex } from 'theme-ui';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import PortableText from './PortableText';
@@ -19,9 +19,10 @@ const Post = ({ post, lang }) => {
   const author = post.author.name[lang];
   console.log(post.mainImage.asset);
   const image = getImage(post.mainImage.asset);
+  console.log(image);
   return (
-    <BaseStyles>
-      <article>
+    <Flex as="article" sx={{ flexDirection: 'column', width: '500px' }}>
+      <BaseStyles>
         <h2>{title}</h2>
         <h3>{author}</h3>
         {categories.map((category, i) => (
@@ -36,8 +37,8 @@ const Post = ({ post, lang }) => {
         />
         <PortableText blocks={text} />
         <Divider />
-      </article>
-    </BaseStyles>
+      </BaseStyles>
+    </Flex>
   );
 };
 export default Post;

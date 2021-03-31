@@ -15,6 +15,7 @@ const Hero = () => {
         gridTemplateColumns: '1fr',
         gridTemplateRows: '1fr',
         height: ['44vh', '66vh', '88vh'],
+        margin: '-10px',
       }}
     >
       {/* first box image will cover the whole grid area */}
@@ -30,7 +31,7 @@ const Hero = () => {
         }}
       />
 
-      {/* second box gradient will cover the whole grid area */}
+      {/* linear gradient second box gradient will cover the whole grid area */}
       <Box
         sx={{
           gridArea: '1 / 1 / 2 / 3',
@@ -41,21 +42,21 @@ const Hero = () => {
           } 30%,rgba(255,255,255,0) 100%)`,
         }}
       />
-      {/* third box gradient will cover the whole grid area */}
+      {/* this box is for text third box gradient will cover the whole grid area */}
       <Box
         sx={{
           gridArea: '1 / 1 / 2 / 3',
           zIndex: 3,
           width: ['100%', '75%', '50%'],
+          color: 'background',
+          padding: '10px',
         }}
       >
-        <p sx={{ color: 'background' }}>
-          <h1>Hi I'm Lilyanne</h1>
-          <h2>
-            A writer who spends her time creating, telling and teaching people
-            how to craft beautiful stories. Please take a mini tour of my work
-            and my life; I hope that you'll enjoy your time visiting.
-          </h2>
+        <h1 sx={{ fontFamily: 'heading', fontSize: 5 }}>Hi I'm Lilyanne</h1>
+        <p>
+          A writer who spends her time creating, telling and teaching people how
+          to craft beautiful stories. Please take a mini tour of my work and my
+          life; I hope that you'll enjoy your time visiting.
         </p>
       </Box>
     </Grid>

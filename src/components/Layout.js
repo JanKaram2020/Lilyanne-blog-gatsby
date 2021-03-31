@@ -11,7 +11,7 @@ const Layout = ({ children }) => {
     // eslint-disable-next-line react/jsx-pascal-case
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <Nav />
-      {children}
+      <div style={{ margin: '10px' }}>{children}</div>
       <Footer />
     </main>
   );

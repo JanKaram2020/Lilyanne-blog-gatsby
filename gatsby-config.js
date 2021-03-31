@@ -1,3 +1,5 @@
+const clientConfig = require('./client-config');
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://gatsby-theme-i18n-react-i18next.netlify.app`,
@@ -9,8 +11,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-sanity',
       options: {
-        projectId: 't6xuw7ui',
-        dataset: 'production',
+        ...clientConfig.sanity,
+        watchMode: true,
       },
     },
     'gatsby-plugin-gatsby-cloud',

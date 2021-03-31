@@ -14,7 +14,8 @@ const Nav = () => {
       as="nav"
       sx={{
         bg: 'darken',
-        padding: '1px 0px 10px 10px',
+        padding: '1px 0 0 10px',
+        marginBottom: [0, 0, '-10px'],
         alignItems: 'center',
         justifyItems: 'center',
         alignContent: 'center',
@@ -81,7 +82,7 @@ const Nav = () => {
         )}
         {locale !== 'fr' && (
           <NavLink as={Link} to="/fr">
-            français
+            Français
           </NavLink>
         )}
         <ColorModeToggle>

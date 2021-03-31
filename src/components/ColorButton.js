@@ -3,7 +3,6 @@ import { jsx, Flex, useColorMode } from 'theme-ui';
 
 const ColorModeToggle = ({ children }) => {
   const [colorMode, setColorMode] = useColorMode();
-  console.log(colorMode);
   const isDark = colorMode === `dark`;
   const toggle = (e) => {
     e.preventDefault();
