@@ -5,7 +5,6 @@ import { Flex, jsx } from 'theme-ui';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
-import '../gatsby-plugin-theme-ui/Font.css';
 
 // markup
 const IndexPage = ({ data }) => {

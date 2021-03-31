@@ -1,5 +1,3 @@
-import './Font.css';
-
 export default {
   borders: ['1px'],
   borderStyles: ['solid', 'dashed'],
