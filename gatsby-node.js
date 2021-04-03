@@ -1,40 +1,20 @@
 const path = require(`path`);
+const { isFuture } = require('date-fns');
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const blogPostTemplate = path.resolve(`src/templates/Post.js`);
 
   const result = await graphql(`
-    query {
-      allSanityPost {
-        totalCount
+    {
+      allSanityPost(
+        filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      ) {
         nodes {
-          body {
-            _rawEn
-            _rawAr
-            _rawFr
-          }
-          author {
-            name {
-              ar
-              en
-              fr
-            }
-          }
-          categories {
-            title {
-              ar
-              en
-              fr
-            }
-          }
-          title {
-            ar
-            en
-            fr
-          }
           slug {
             current
           }
+          publishedAt
         }
       }
     }
@@ -43,7 +23,8 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
   const posts = result.data.allSanityPost.nodes || [];
-  posts.forEach((node) => {
+  const currentPosts = posts.filter((node) => !isFuture(node.publishedAt));
+  currentPosts.forEach((node) => {
     createPage({
       path: `post/${node.slug.current}`,
       component: blogPostTemplate,
