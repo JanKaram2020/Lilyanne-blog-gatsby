@@ -9,7 +9,7 @@ function encode(data) {
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
 }
-
+// TODO : add localization to this page and to thanks page
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -105,9 +105,7 @@ class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <Button className="button is-link" type="submit">
-                    Send
-                  </Button>
+                  <Button type="submit">Send</Button>
                 </div>
               </Box>
             </div>

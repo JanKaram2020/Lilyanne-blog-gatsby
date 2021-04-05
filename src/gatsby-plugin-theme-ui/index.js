@@ -323,12 +323,14 @@ export default {
     },
     input: {
       color: 'text',
+      caretColor: 'primary',
     },
     select: {
       color: 'text',
     },
     textarea: {
       color: 'text',
+      caretColor: 'primary',
     },
     slider: {
       color: 'primary',

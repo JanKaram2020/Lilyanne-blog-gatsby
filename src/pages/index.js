@@ -45,7 +45,7 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query PostsQuery {
     allSanityPost(
-      limit: 6
+      limit: 4
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
