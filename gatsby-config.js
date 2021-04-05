@@ -2,10 +2,10 @@ const clientConfig = require('./client-config');
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://gatsby-theme-i18n-react-i18next.netlify.app`,
-    title: 'gatsby-theme-i18n-react-i18next',
-    description: `Default example for i18n with react-i18next`,
-    author: `LekoArts`,
+    siteUrl: `https://lilyannehany.netlify.app/`,
+    title: `Lilyanne Hany's blog`,
+    description: `Lilyanne Hany's website including articles written by Lilyanne , about her and contact her`,
+    author: `Jan Karam`,
   },
   plugins: [
     {
@@ -40,10 +40,29 @@ module.exports = {
         icon: 'src/images/icon.png',
         name: `Lilyanne Hany's Blog`,
         short_name: `Lilyanne's blog`,
+        description: `Lilyanne Hany's website including articles written by Lilyanne , about her and contact her`,
+        lang: `en`,
         start_url: `/`,
         background_color: `#f7f0eb`,
         theme_color: `#ff613c`,
         display: `standalone`,
+        theme_color_in_head: false, // This will avoid adding theme-color meta tag.
+        localize: [
+          {
+            start_url: `/ar/`,
+            lang: `ar`,
+            name: `مدونة ليليان هاني`,
+            short_name: `مدونة ليليان`,
+            description: `موقع ليليان هاني يتضمن مقالات ليليان و معلومات عنها و التواصل معاها`,
+          },
+          {
+            start_url: `/fr/`,
+            lang: `fr`,
+            name: `Blog de Lilyanne Hany`,
+            short_name: `Le blog de Lilyanne`,
+            description: `Site Web de Lilyanne Hany comprenant des articles écrits par Lilyanne, à son sujet et la contacter`,
+          },
+        ],
       },
     },
     'gatsby-plugin-offline',
