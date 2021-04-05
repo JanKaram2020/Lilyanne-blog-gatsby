@@ -38,6 +38,12 @@ module.exports = {
       resolve: 'gatsby-plugin-manifest',
       options: {
         icon: 'src/images/icon.png',
+        name: `Lilyanne Hany's Blog`,
+        short_name: `Lilyanne's blog`,
+        start_url: `/`,
+        background_color: `#f7f0eb`,
+        theme_color: `#ff613c`,
+        display: `standalone`,
       },
     },
     'gatsby-plugin-offline',
