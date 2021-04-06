@@ -1,4 +1,4 @@
-import { useLocalization } from 'gatsby-theme-i18n';
+import { useLocalization, LocalizedLink } from 'gatsby-theme-i18n';
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
@@ -10,36 +10,22 @@ const PostPage = ({ data, slug }) => {
   const post = data.sanityPost;
   const { locale } = useLocalization();
   console.log(post);
+  console.log(process.env.GATSBY_LOCALE);
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <Layout>
-        {locale === 'fr' && post.body._rawFr ? (
+        {locale === 'fr' && post.language === 'fr' ? (
           <Post post={post} lang="fr" />
         ) : (
           ''
         )}
-        {locale === 'fr' && post.body._rawFr === null ? (
-          <h1>French is not avaliable yet</h1>
-        ) : (
-          ''
-        )}
-        {locale === 'en' && post.body._rawEn ? (
+        {locale === 'en' && post.language === 'en' ? (
           <Post post={post} lang="en" />
         ) : (
           ''
         )}
-        {locale === 'en' && post.body._rawEn === null ? (
-          <h1>English is not avaliable yet</h1>
-        ) : (
-          ''
-        )}
-        {locale === 'ar' && post.body._rawAr ? (
+        {locale === 'ar' && post.language === 'ar' ? (
           <Post post={post} lang="ar" />
-        ) : (
-          ''
-        )}
-        {locale === 'ar' && post.body._rawAr === null ? (
-          <h1>النسخة العربية غير متوفرة</h1>
         ) : (
           ''
         )}
@@ -51,10 +37,9 @@ export default PostPage;
 export const query = graphql`
   query($slug: String!) {
     sanityPost(slug: { current: { eq: $slug } }) {
+      _rawBody
       body {
-        _rawEn
-        _rawAr
-        _rawFr
+        _rawChildren
       }
       author {
         name {
@@ -70,11 +55,7 @@ export const query = graphql`
           fr
         }
       }
-      title {
-        ar
-        en
-        fr
-      }
+      title
       mainImage {
         asset {
           gatsbyImageData(
@@ -84,6 +65,10 @@ export const query = graphql`
           )
         }
       }
+      slug {
+        current
+      }
+      language
     }
   }
 `;

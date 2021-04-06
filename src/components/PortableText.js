@@ -19,6 +19,7 @@ const PortableText = ({ blocks }) => (
   <BlockContent
     blocks={blocks}
     serializers={serializers}
+    /* eslint-disable-next-line react/jsx-props-no-spreading */
     {...clientConfig.sanity}
   />
 );

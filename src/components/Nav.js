@@ -71,17 +71,17 @@ const Nav = () => {
         }}
       >
         {locale !== 'ar' && (
-          <NavLink as={Link} to="/ar">
+          <NavLink as={Link} to="/ar" language="ar">
             عربي
           </NavLink>
         )}
         {locale !== 'en' && (
-          <NavLink as={Link} to="/">
+          <NavLink as={Link} to="/" language="en">
             English
           </NavLink>
         )}
         {locale !== 'fr' && (
-          <NavLink as={Link} to="/fr">
+          <NavLink as={Link} to="/fr" language="fr">
             Français
           </NavLink>
         )}

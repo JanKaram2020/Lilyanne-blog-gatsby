@@ -1,7 +1,7 @@
-import { useLocalization } from 'gatsby-theme-i18n';
+import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
-import { Link } from 'gatsby';
 import { useTranslation } from 'react-i18next';
+import { NavLink } from 'theme-ui';
 import Layout from '../components/Layout';
 
 // markup
@@ -12,8 +12,9 @@ const NotFoundPage = () => {
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <Layout>
         <h1>{t('notFound')}</h1>
-        <title>Not found</title>
-        <Link to="/">Go home</Link>.
+        <NavLink as={LocalizedLink} to="/">
+          {t('home')}
+        </NavLink>
       </Layout>
     </main>
   );

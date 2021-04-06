@@ -21,17 +21,17 @@ const IndexPage = ({ data }) => {
       >
         {posts.map((post, i) => (
           <Flex key={`${i} ${post._id}`}>
-            {locale === 'fr' && post.body._rawFr ? (
+            {locale === 'fr' && post.language === 'fr' ? (
               <Post post={post} lang="fr" />
             ) : (
               ''
             )}
-            {locale === 'en' && post.body._rawEn ? (
+            {locale === 'en' && post.language === 'en' ? (
               <Post post={post} lang="en" />
             ) : (
               ''
             )}
-            {locale === 'ar' && post.body._rawAr ? (
+            {locale === 'ar' && post.language === 'ar' ? (
               <Post post={post} lang="ar" />
             ) : (
               ''
@@ -45,16 +45,14 @@ const IndexPage = ({ data }) => {
 export const query = graphql`
   query PostsQuery {
     allSanityPost(
-      limit: 4
       sort: { fields: [publishedAt], order: DESC }
       filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
     ) {
       totalCount
       nodes {
+        _rawBody
         body {
-          _rawEn
-          _rawAr
-          _rawFr
+          _rawChildren
         }
         author {
           name {
@@ -70,11 +68,7 @@ export const query = graphql`
             fr
           }
         }
-        title {
-          ar
-          en
-          fr
-        }
+        title
         mainImage {
           asset {
             gatsbyImageData(
@@ -84,6 +78,10 @@ export const query = graphql`
             )
           }
         }
+        slug {
+          current
+        }
+        language
       }
     }
   }

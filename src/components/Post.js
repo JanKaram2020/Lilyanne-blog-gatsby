@@ -1,25 +1,18 @@
 /** @jsx jsx */
+import { LocalizedLink } from 'gatsby-theme-i18n';
 import { BaseStyles, jsx, Divider, useColorMode, Flex } from 'theme-ui';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import PortableText from './PortableText';
 
-const Post = ({ post, lang }) => {
+const Post = ({ post }) => {
+  const lang = post.language;
   const [colorMode] = useColorMode();
-  let text;
-  if (lang === 'en') {
-    text = post.body._rawEn;
-  } else if (lang === 'ar') {
-    text = post.body._rawAr;
-  } else {
-    text = post.body._rawFr;
-  }
+  const text = post._rawBody;
   const { categories } = post;
-  const title = post.title[lang];
+  const { title } = post;
   const author = post.author.name[lang];
-  console.log(post.mainImage.asset);
   const image = getImage(post.mainImage.asset);
-  console.log(image);
   return (
     <Flex
       as="article"
@@ -31,6 +24,9 @@ const Post = ({ post, lang }) => {
       }}
     >
       <BaseStyles>
+        <LocalizedLink to={`/post/${post.slug.current}`}>
+          {post.slug.current}
+        </LocalizedLink>
         <h2>{title}</h2>
         <h3>{author}</h3>
         {categories.map((category, i) => (

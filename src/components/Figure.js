@@ -26,7 +26,7 @@ const Figure = ({ node }) => {
           filter: colorMode === 'dark' && 'brightness(85%)',
         }}
       />
-      <figcaption>{node.caption}</figcaption>
+      {node.caption && <figcaption>{node.caption}</figcaption>}
     </figure>
   );
 };
