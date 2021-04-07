@@ -3,16 +3,20 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
+import SEO from '../components/Seo';
+import { toPlainText } from '../helpers';
 
-const PostPage = ({ data, slug }) => {
-  console.log(data);
-  console.log(slug);
+const PostPage = ({ data }) => {
   const post = data.sanityPost;
   const { locale } = useLocalization();
   console.log(post);
-  console.log(process.env.GATSBY_LOCALE);
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
+      <SEO
+        title={post.title || 'Untitled'}
+        description={post.excerpt || toPlainText(post._rawBody)}
+        image={post.mainImage.asset.url}
+      />
       <Layout>
         {locale === 'fr' && post.language === 'fr' ? (
           <Post post={post} lang="fr" />
@@ -38,9 +42,6 @@ export const query = graphql`
   query($slug: String!) {
     sanityPost(slug: { current: { eq: $slug } }) {
       _rawBody
-      body {
-        _rawChildren
-      }
       author {
         name {
           ar
@@ -63,12 +64,14 @@ export const query = graphql`
             placeholder: BLURRED
             formats: [AUTO, WEBP, AVIF]
           )
+          url
         }
       }
       slug {
         current
       }
       language
+      excerpt
     }
   }
 `;

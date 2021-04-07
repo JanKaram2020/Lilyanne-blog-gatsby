@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
 import Layout from '../components/Layout';
+// TODO add seo to all pages
 
 const CategoriesPage = ({ data }) => {
   const categories = data.allSanityCategory.nodes;

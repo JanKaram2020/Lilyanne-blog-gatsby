@@ -5,6 +5,7 @@ import { Flex } from 'theme-ui';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
+import SEO from '../components/Seo';
 
 // markup
 const IndexPage = ({ data }) => {
@@ -12,6 +13,7 @@ const IndexPage = ({ data }) => {
   const posts = data.allSanityPost.nodes;
   return (
     <Layout>
+      <SEO />
       <Hero />
       <Flex
         sx={{

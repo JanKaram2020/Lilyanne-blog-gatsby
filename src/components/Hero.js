@@ -2,13 +2,14 @@
 import { StaticImage } from 'gatsby-plugin-image';
 import { useLocalization } from 'gatsby-theme-i18n';
 import { Box, Grid, useColorMode, jsx } from 'theme-ui';
+import Theme from '../gatsby-plugin-theme-ui/index';
+// TODO add a way to make the color less opacity here
 
 const Hero = () => {
   const [colorMode] = useColorMode();
   const dark = colorMode === 'dark';
   const { locale } = useLocalization();
   const arabic = locale === 'ar';
-  console.log(dark);
   return (
     <Grid
       sx={{
@@ -38,7 +39,7 @@ const Hero = () => {
           zIndex: 2,
           maxWidth: '100%',
           background: `linear-gradient(${arabic ? '-' : ''}90deg,${
-            dark ? '#33ccff70' : '#ff613c7a'
+            dark ? Theme.colors.modes.dark.primary : Theme.colors.primary
           } 30%,rgba(255,255,255,0) 100%)`,
         }}
       />
