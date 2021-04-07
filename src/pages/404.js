@@ -11,7 +11,7 @@ const NotFoundPage = () => {
   const { t } = useTranslation('404');
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
-      <SEO />
+      <SEO title={t('notFound')} lang={locale} />
       <Layout>
         <h1>{t('notFound')}</h1>
         <NavLink as={LocalizedLink} to="/">

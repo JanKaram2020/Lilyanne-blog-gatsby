@@ -13,6 +13,7 @@ const PostPage = ({ data }) => {
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <SEO
+        lang={locale}
         title={post.title || 'Untitled'}
         description={post.excerpt || toPlainText(post._rawBody)}
         image={post.mainImage.asset.url}

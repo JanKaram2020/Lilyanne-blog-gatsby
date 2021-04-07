@@ -1,16 +1,20 @@
-import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
+
 import { navigate } from 'gatsby';
 import { Box, Label, Input, Textarea, Button } from 'theme-ui';
+import { useLocalization } from 'gatsby-theme-i18n';
+import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
+
+// TODO add localization
+// TODO : add localization to this page and to thanks page
 
 function encode(data) {
   return Object.keys(data)
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join('&');
 }
-// TODO : add localization to this page and to thanks page
 class Index extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +44,6 @@ class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <SEO />
         <section className="section">
           <div className="container">
             <div className="content">
@@ -121,9 +124,11 @@ class Index extends React.Component {
 
 const ContactPageWithLocalHook = () => {
   const { locale } = useLocalization();
+  const { t } = useTranslation('Nav');
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
-      <Index />
+      <SEO title={t('contact')} lang={locale} />
+      <Index locale={locale} />
     </main>
   );
 };

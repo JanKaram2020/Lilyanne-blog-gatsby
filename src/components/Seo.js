@@ -36,10 +36,11 @@ function SEO({ description, lang, meta, keywords, title, image }) {
     description || site.description[lang] || site.description.en || '';
   const siteTitle = site.title[lang] || site.title.en || '';
   const siteAuthor = site.author.name[lang] || site.author.name.en || '';
+  const seoTitle = `${title ? `${title} |` : ''} ${siteTitle}`;
   return (
     <Helmet
       htmlAttributes={{ lang }}
-      title={title || siteTitle}
+      title={seoTitle}
       // titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
       meta={[
         {
@@ -48,7 +49,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           property: 'og:title',
-          content: title || siteTitle,
+          content: seoTitle,
         },
         {
           property: 'og:description',
@@ -72,7 +73,7 @@ function SEO({ description, lang, meta, keywords, title, image }) {
         },
         {
           name: 'twitter:title',
-          content: title || siteTitle,
+          content: seoTitle,
         },
         {
           name: 'twitter:description',

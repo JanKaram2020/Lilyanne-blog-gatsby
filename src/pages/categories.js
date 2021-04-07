@@ -1,21 +1,23 @@
 import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { jsx, NavLink } from 'theme-ui';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
-// TODO add seo to all pages
 
 const CategoriesPage = ({ data }) => {
   const categories = data.allSanityCategory.nodes;
   console.log(categories);
   const { locale } = useLocalization();
+  const { t } = useTranslation('Nav');
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
-      <SEO />
+      <SEO title={t('categories')} lang={locale} />
       <Layout>
         {categories.map((category) => (
           <div key={category.slug.current}>
-            <h1> {category.title.en}</h1>
+            <h1> {category.title[locale]}</h1>
           </div>
         ))}
       </Layout>

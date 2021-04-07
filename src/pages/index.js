@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
   const posts = data.allSanityPost.nodes;
   return (
     <Layout>
-      <SEO />
+      <SEO lang={locale} />
       <Hero />
       <Flex
         sx={{
