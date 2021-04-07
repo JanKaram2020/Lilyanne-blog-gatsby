@@ -3,6 +3,7 @@ import React from 'react';
 import { navigate } from 'gatsby';
 import { Box, Label, Input, Textarea, Button } from 'theme-ui';
 import Layout from '../../components/Layout';
+import SEO from '../../components/Seo';
 
 function encode(data) {
   return Object.keys(data)
@@ -39,6 +40,7 @@ class Index extends React.Component {
   render() {
     return (
       <Layout>
+        <SEO />
         <section className="section">
           <div className="container">
             <div className="content">

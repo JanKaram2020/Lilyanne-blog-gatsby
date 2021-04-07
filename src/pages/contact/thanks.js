@@ -1,8 +1,10 @@
 import React from 'react';
 import Layout from '../../components/Layout';
+import SEO from '../../components/Seo';
 
 const ThanksPage = () => (
   <Layout>
+    <SEO />
     <section className="section">
       <div className="container">
         <div className="content">

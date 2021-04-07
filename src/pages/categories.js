@@ -2,6 +2,7 @@ import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
 import Layout from '../components/Layout';
+import SEO from '../components/Seo';
 // TODO add seo to all pages
 
 const CategoriesPage = ({ data }) => {
@@ -10,6 +11,7 @@ const CategoriesPage = ({ data }) => {
   const { locale } = useLocalization();
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
+      <SEO />
       <Layout>
         {categories.map((category) => (
           <div key={category.slug.current}>
