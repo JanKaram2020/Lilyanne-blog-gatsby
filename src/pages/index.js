@@ -6,7 +6,7 @@ import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 import SEO from '../components/Seo';
-
+// TODO consider refactoring all languages to use source form sanity
 // markup
 const IndexPage = ({ data }) => {
   const { locale } = useLocalization();

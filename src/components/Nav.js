@@ -48,7 +48,7 @@ const Nav = () => {
             <Logo />
           </Flex>
         </NavLink>
-        <NavLink as={LocalizedLink} to="/blog" activeClassName="active">
+        <NavLink as={LocalizedLink} to="/blog">
           {t('blog')}
         </NavLink>
         <NavLink as={LocalizedLink} to="/categories">
@@ -71,17 +71,17 @@ const Nav = () => {
         }}
       >
         {locale !== 'ar' && (
-          <NavLink as={Link} to="/ar" language="ar">
+          <NavLink as={Link} to="/ar">
             عربي
           </NavLink>
         )}
         {locale !== 'en' && (
-          <NavLink as={Link} to="/" language="en">
+          <NavLink as={Link} to="/">
             English
           </NavLink>
         )}
         {locale !== 'fr' && (
-          <NavLink as={Link} to="/fr" language="fr">
+          <NavLink as={Link} to="/fr">
             Français
           </NavLink>
         )}

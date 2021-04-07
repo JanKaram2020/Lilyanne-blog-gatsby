@@ -291,6 +291,9 @@ export default {
       '&[aria-current]': {
         color: 'primary',
       },
+      ':active': {
+        transform: 'scale(0.9)',
+      },
     },
     footer: {
       color: 'text',
