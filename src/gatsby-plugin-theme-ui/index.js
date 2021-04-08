@@ -284,7 +284,7 @@ export default {
     nav: {
       color: 'text',
       fontFamily: 'heading',
-      fontSize: [2, 3, 4],
+      fontSize: [2, 3],
       ':hover': {
         color: 'primary',
       },
