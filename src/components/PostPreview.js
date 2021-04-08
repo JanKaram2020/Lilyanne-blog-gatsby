@@ -14,7 +14,7 @@ const PostPreview = ({ post }) => {
         padding: 10,
         maxWidth: '500px',
         display: 'flex',
-        gap: '10px',
+        gap: 10,
         flexDirection: 'column',
       }}
     >

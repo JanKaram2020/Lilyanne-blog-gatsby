@@ -34,6 +34,7 @@ export default {
   },
   fontSizes: [
     '0.75rem',
+    '0.9rem',
     '1rem',
     '1.25rem',
     '1.5rem',
@@ -287,7 +288,7 @@ export default {
     nav: {
       color: 'text',
       fontFamily: 'heading',
-      fontSize: [2, 3],
+      fontSize: [3, 4],
       ':hover': {
         color: 'primary',
       },

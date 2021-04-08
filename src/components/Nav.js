@@ -29,7 +29,7 @@ const Nav = () => {
           alignItems: 'center',
           justifyItems: 'center',
           justifyContent: 'space-between',
-          gap: ['3px', '10px'],
+          gap: ['5px', '8px', '10px'],
           flexWrap: 'wrap',
           flexDirection: 'row',
         }}

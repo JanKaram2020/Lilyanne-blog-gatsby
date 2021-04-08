@@ -1,5 +1,5 @@
 const path = require(`path`);
-const { isFuture } = require('date-fns');
+const { isFuture, parseISO } = require('date-fns');
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -23,7 +23,9 @@ exports.createPages = async ({ graphql, actions }) => {
     throw result.errors;
   }
   const posts = result.data.allSanityPost.nodes || [];
-  const currentPosts = posts.filter((node) => !isFuture(node.publishedAt));
+  const currentPosts = posts.filter(
+    (node) => !isFuture(parseISO(node.publishedAt))
+  );
   currentPosts.forEach((node) => {
     createPage({
       path: `post/${node.slug.current}`,
