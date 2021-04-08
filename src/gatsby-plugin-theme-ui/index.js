@@ -261,9 +261,18 @@ export default {
   flex: {},
   grids: {},
   buttons: {
-    backgroundColor: 'primary',
     primary: {
+      fontWeight: 'bold',
+      backgroundColor: 'primary',
+      border: '2px solid',
+      borderColor: 'primary',
       textTransform: 'capitalize',
+      color: 'background',
+      transitionDuration: '0.4s',
+      ':hover': {
+        color: 'primary',
+        backgroundColor: 'background',
+      },
     },
     secondary: {
       textTransform: 'capitalize',
@@ -289,6 +298,7 @@ export default {
       color: 'text',
       fontFamily: 'heading',
       fontSize: [3, 4],
+      transitionDuration: '0.4s',
       ':hover': {
         color: 'primary',
       },
