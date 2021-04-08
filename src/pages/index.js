@@ -1,44 +1,35 @@
+import { GatsbyImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql } from 'gatsby';
-import { useLocalization } from 'gatsby-theme-i18n';
-import { Flex } from 'theme-ui';
+import { useLocalization, LocalizedLink } from 'gatsby-theme-i18n';
+import { Flex, Card, Text, Heading } from 'theme-ui';
 import Hero from '../components/Hero';
 import Layout from '../components/Layout';
-import Post from '../components/Post';
+import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
+import { toPlainText } from '../helpers';
 // TODO consider refactoring all languages to use source form sanity
 // markup
 const IndexPage = ({ data }) => {
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
+  const currentPosts = posts.filter((post) => post.language === locale);
   return (
     <Layout>
       <SEO lang={locale} />
       <Hero />
+      <Heading as="h1">Latest Stories</Heading>
       <Flex
         sx={{
           flexDirection: ['column', 'row'],
           flexWrap: 'wrap',
+          gap: ['10px', '20px', '30px'],
+          alignContent: 'center',
+          justifyContent: 'center',
         }}
       >
-        {posts.map((post, i) => (
-          <Flex key={`${i} ${post._id}`}>
-            {locale === 'fr' && post.language === 'fr' ? (
-              <Post post={post} lang="fr" />
-            ) : (
-              ''
-            )}
-            {locale === 'en' && post.language === 'en' ? (
-              <Post post={post} lang="en" />
-            ) : (
-              ''
-            )}
-            {locale === 'ar' && post.language === 'ar' ? (
-              <Post post={post} lang="ar" />
-            ) : (
-              ''
-            )}
-          </Flex>
+        {currentPosts.map((post, i) => (
+          <PostPreview post={post} key={`${i} ${post._id}`} />
         ))}
       </Flex>
     </Layout>
@@ -84,6 +75,7 @@ export const query = graphql`
           current
         }
         language
+        publishedAt(formatString: "Do MM YYYY, h:mm a")
       }
     }
   }

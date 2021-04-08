@@ -91,7 +91,7 @@ export default {
     },
     h1: {
       fontFamily: 'heading',
-      color: 'text',
+      color: 'primary',
       fontSize: 7,
       fontWeight: 'heading',
       lineHeight: 'heading',
@@ -278,7 +278,10 @@ export default {
   },
   text: {
     text: {},
-    heading: {},
+    heading: {
+      fontFamily: 'heading',
+      fontSize: 5,
+    },
   },
   links: {
     nav: {
@@ -310,6 +313,7 @@ export default {
   },
   cards: {
     primary: {
+      marginTop: 20,
       color: 'text',
       boxShadow: 0,
       backgroundColor: 'darken',

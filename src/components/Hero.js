@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { StaticImage } from 'gatsby-plugin-image';
 import { useLocalization } from 'gatsby-theme-i18n';
-import { Box, Grid, useColorMode, jsx } from 'theme-ui';
+import { Heading, Box, Grid, useColorMode, jsx } from 'theme-ui';
 import Theme from '../gatsby-plugin-theme-ui/index';
 // TODO add a way to make the color less opacity here
 
@@ -17,6 +17,7 @@ const Hero = () => {
         gridTemplateRows: '1fr',
         height: ['44vh', '66vh', '88vh'],
         margin: '-10px',
+        marginBottom: ['100px', '50px', 0],
       }}
     >
       {/* first box image will cover the whole grid area */}
@@ -53,7 +54,7 @@ const Hero = () => {
           padding: '10px',
         }}
       >
-        <h1 sx={{ fontFamily: 'heading', fontSize: 5 }}>Hi I'm Lilyanne</h1>
+        <Heading sx={{ fontSize: 5 }}>Hi I'm Lilyanne</Heading>
         <p>
           A writer who spends her time creating, telling and teaching people how
           to craft beautiful stories. Please take a mini tour of my work and my
