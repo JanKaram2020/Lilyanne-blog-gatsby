@@ -21,7 +21,7 @@ const Nav = () => {
         alignContent: 'center',
         justifyContent: 'space-between',
         flexWrap: 'wrap',
-        flexDirection: ['column', 'row'],
+        flexDirection: ['column', 'column', 'row'],
       }}
     >
       <Flex
@@ -29,7 +29,7 @@ const Nav = () => {
           alignItems: 'center',
           justifyItems: 'center',
           justifyContent: 'space-between',
-          gap: ['4px', '10px'],
+          gap: ['3px', '10px'],
           flexWrap: 'wrap',
           flexDirection: 'row',
         }}
@@ -66,7 +66,7 @@ const Nav = () => {
           justifySelf: 'flex-end',
           alignItems: 'center',
           justifyItems: 'center',
-          gap: '10px',
+          gap: ['5px', '8px', '10px'],
           flexWrap: 'wrap',
         }}
       >
