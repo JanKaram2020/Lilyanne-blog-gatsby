@@ -7,47 +7,65 @@ import { toPlainText } from '../helpers';
 // TODO add localization here
 
 const PostPreview = ({ post }) => {
-  console.log(post);
+  const { title, mainImage, publishedAt, slug, _rawBody } = post;
   return (
     <Card
       sx={{
+        display: 'grid',
+        gridTemplateColumns: '1fr',
+        gridTemplateRows: ['2fr 0.5fr 1fr', null, '2fr 1fr 1fr'],
+        gridColumnGap: '10px',
+        gridRowGap: '10px',
         padding: 10,
+        paddingBottom: 0,
         maxWidth: '500px',
-        display: 'flex',
-        gap: 10,
-        flexDirection: 'column',
+        maxHeight: '550px',
       }}
     >
-      <Flex sx={{ flexDirection: ['column', 'column', 'row'], gap: 10 }}>
+      <Flex
+        sx={{
+          flexDirection: ['column', null, 'row'],
+          gap: 10,
+        }}
+      >
         <GatsbyImage
-          image={post.mainImage.asset.gatsbyImageData}
-          alt={post.title}
+          image={mainImage.asset.gatsbyImageData}
+          alt={title}
           sx={{
-            maxWidth: ['100%', '150px'],
-            maxHeight: '250px',
+            width: ['100%', null, '150px'],
+            height: ['250px', null, '150px'],
             borderRadius: '10px',
           }}
         />
         <Box>
           <NavLink
             as={LocalizedLink}
-            to={`/post/${post.slug.current}`}
+            to={`/post/${slug.current}`}
             language={post.language}
           >
-            <Heading sx={{ fontSize: 5, color: 'primary' }}>
-              {post.title}
-            </Heading>
+            <Heading sx={{ fontSize: 5, color: 'primary' }}>{title}</Heading>
           </NavLink>
-          <h3> {post.publishedAt}</h3>
+          <h3> {publishedAt}</h3>
         </Box>
       </Flex>
-      <Flex sx={{ flexDirection: 'column', gap: '10px' }}>
-        <Text>{`${toPlainText(post._rawBody).slice(0, 200)}...`}</Text>
+      <Flex
+        sx={{
+          alignItems: 'flex-start',
+          height: '50px',
+        }}
+      >
+        <Text>{`${toPlainText(_rawBody).slice(0, 200)}...`}</Text>
+      </Flex>
+      <Flex
+        sx={{
+          alignItems: 'center',
+        }}
+      >
         <Button
           as={LocalizedLink}
-          to={`/post/${post.slug.current}`}
+          to={`/post/${slug.current}`}
           language={post.language}
-          sx={{ margin: '10px', width: '60%' }}
+          sx={{ width: '150px', borderRadius: '10px' }}
         >
           Keep Reading ➜
         </Button>

@@ -268,10 +268,14 @@ export default {
       borderColor: 'primary',
       textTransform: 'capitalize',
       color: 'background',
-      transitionDuration: '0.4s',
+      transitionDuration: '0.2s',
       ':hover': {
         color: 'primary',
-        backgroundColor: 'background',
+        backgroundColor: 'darken',
+        cursor: 'pointer',
+      },
+      ':active': {
+        transform: 'scale(0.9)',
       },
     },
     secondary: {
@@ -301,6 +305,7 @@ export default {
       transitionDuration: '0.4s',
       ':hover': {
         color: 'primary',
+        cursor: 'pointer',
       },
       '&[aria-current]': {
         color: 'primary',
