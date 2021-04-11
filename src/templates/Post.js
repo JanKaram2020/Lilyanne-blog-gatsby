@@ -1,4 +1,4 @@
-import { useLocalization, LocalizedLink } from 'gatsby-theme-i18n';
+import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
 import { graphql } from 'gatsby';
 import Layout from '../components/Layout';

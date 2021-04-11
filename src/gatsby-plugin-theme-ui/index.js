@@ -70,7 +70,7 @@ export default {
   breakpoints: ['640px', '768px', '1024', '1280'],
   styles: {
     root: {
-      fontSize: 1,
+      fontSize: 2,
       fontFamily: 'body',
       lineHeight: 'body',
       wordBreak: 'break-word',
@@ -280,11 +280,21 @@ export default {
       },
     },
     secondary: {
+      fontWeight: 'bold',
+      border: '2px solid',
+      borderColor: 'primary',
+
+      color: 'primary',
+      backgroundColor: 'darken',
       textTransform: 'capitalize',
-      color: 'background',
-      backgroundColor: 'secondary',
+      transitionDuration: '0.2s',
       ':hover': {
+        backgroundColor: 'primary',
         color: 'background',
+        cursor: 'pointer',
+      },
+      ':active': {
+        transform: 'scale(0.9)',
       },
     },
     close: {},

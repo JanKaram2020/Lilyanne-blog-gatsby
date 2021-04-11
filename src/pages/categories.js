@@ -27,7 +27,7 @@ const CategoriesPage = ({ data }) => {
 
 export default CategoriesPage;
 export const query = graphql`
-  query MyQuery {
+  query CategoryQuery {
     allSanityCategory {
       nodes {
         title {
@@ -37,6 +37,11 @@ export const query = graphql`
         }
         slug {
           current
+        }
+        description {
+          ar
+          en
+          fr
         }
       }
     }

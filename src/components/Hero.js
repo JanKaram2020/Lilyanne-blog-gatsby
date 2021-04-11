@@ -15,10 +15,11 @@ const Hero = () => {
       sx={{
         gridTemplateColumns: '1fr',
         gridTemplateRows: '1fr',
-        height: ['44vh', '66vh', '88vh'],
+        height: ['80vh', '60vh'],
         margin: '-10px',
-        marginBottom: ['100px', '50px', 0],
+        marginBottom: ['40px', '20px'],
       }}
+      as="section"
     >
       {/* first box image will cover the whole grid area */}
 
@@ -55,7 +56,7 @@ const Hero = () => {
         }}
       >
         <Heading sx={{ fontSize: 5 }}>Hi I'm Lilyanne</Heading>
-        <p>
+        <p sx={{ fontSize: 4 }}>
           A writer who spends her time creating, telling and teaching people how
           to craft beautiful stories. Please take a mini tour of my work and my
           life; I hope that you'll enjoy your time visiting.
