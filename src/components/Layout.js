@@ -1,5 +1,4 @@
 import 'normalize.css';
-import '../gatsby-plugin-theme-ui/Font.css';
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
 import Footer from './Footer';

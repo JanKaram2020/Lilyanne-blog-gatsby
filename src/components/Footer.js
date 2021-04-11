@@ -19,10 +19,7 @@ const Footer = () => {
     >
       <Flex
         sx={{
-          width: ['300px', '350px', '400px'],
-          direction: 'ltr',
-          position: 'relative',
-          left: '22px',
+          width: ['250px', '300px', '350px'],
         }}
       >
         <Logo />
@@ -32,7 +29,7 @@ const Footer = () => {
           display: 'flex',
           flexDirection: ['column', 'column', 'row'],
           justifyContent: ['flex-start', 'flex-start', 'space-between'],
-          gap: ['10px', '10px', '10rem', '20rem'],
+          gap: ['10px', null, '10rem', '20rem'],
         }}
       >
         <Flex sx={{ flexDirection: 'column' }}>

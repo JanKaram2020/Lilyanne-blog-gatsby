@@ -16,8 +16,7 @@ export default {
       dark: {
         text: '#ececec',
         background: '#060606',
-        // primary: '#33ccff',
-        primary: '#31b0d7',
+        primary: '#00ccff',
         secondary: '#e0f',
         muted: '#191919',
         highlight: '#29112c',
@@ -28,8 +27,9 @@ export default {
     },
   },
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: 'Pristina-Regular, Pristina,system-ui, sans-serif',
+    // body: 'Roboto,system-ui, sans-serif',
+    // heading: 'Pristina-Regular, Pristina,system-ui, sans-serif',
+    heading: 'Pacifico, sans-serif',
     monospace: 'Menlo, monospace',
   },
   fontSizes: [
@@ -73,6 +73,7 @@ export default {
       fontSize: 1,
       fontFamily: 'body',
       lineHeight: 'body',
+      wordBreak: 'break-word',
     },
     p: {
       color: 'text',
@@ -301,8 +302,9 @@ export default {
     nav: {
       color: 'text',
       fontFamily: 'heading',
-      fontSize: [3, 4],
-      transitionDuration: '0.4s',
+      fontSize: [2, 3],
+      transitionDuration: '0.2s',
+      textTransform: 'capitalize',
       ':hover': {
         color: 'primary',
         cursor: 'pointer',

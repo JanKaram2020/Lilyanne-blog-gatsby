@@ -11,7 +11,7 @@ const PostPage = ({ data }) => {
   const { locale } = useLocalization();
   console.log(post);
   return (
-    <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
+    <>
       <SEO
         lang={locale}
         title={post.title || 'Untitled'}
@@ -35,7 +35,7 @@ const PostPage = ({ data }) => {
           ''
         )}
       </Layout>
-    </main>
+    </>
   );
 };
 export default PostPage;

@@ -7,7 +7,7 @@ import { toPlainText } from '../helpers';
 // TODO add localization here
 
 const PostPreview = ({ post }) => {
-  const { title, mainImage, publishedAt, slug, _rawBody } = post;
+  const { title, mainImage, language, publishedAt, slug, _rawBody } = post;
   return (
     <Card
       sx={{
@@ -20,6 +20,7 @@ const PostPreview = ({ post }) => {
         paddingBottom: 0,
         maxWidth: '500px',
         maxHeight: '550px',
+        borderRadius: '10px',
       }}
     >
       <Flex
@@ -41,7 +42,7 @@ const PostPreview = ({ post }) => {
           <NavLink
             as={LocalizedLink}
             to={`/post/${slug.current}`}
-            language={post.language}
+            language={language}
           >
             <Heading sx={{ fontSize: 5, color: 'primary' }}>{title}</Heading>
           </NavLink>
@@ -64,7 +65,7 @@ const PostPreview = ({ post }) => {
         <Button
           as={LocalizedLink}
           to={`/post/${slug.current}`}
-          language={post.language}
+          language={language}
           sx={{ width: '150px', borderRadius: '10px' }}
         >
           Keep Reading ➜

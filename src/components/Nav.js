@@ -14,8 +14,6 @@ const Nav = () => {
       as="nav"
       sx={{
         bg: 'darken',
-        padding: '1px 0 0 10px',
-        marginBottom: [0, 0, '-10px'],
         alignItems: 'center',
         justifyItems: 'center',
         alignContent: 'center',
@@ -42,7 +40,6 @@ const Nav = () => {
               direction: 'ltr',
               alignItems: 'center',
               justifyItems: 'center',
-              paddingTop: '5px',
             }}
           >
             <Logo />
