@@ -1,6 +1,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { graphql, useStaticQuery } from 'gatsby';
+import { useColorMode } from 'theme-ui';
+import Theme from '../gatsby-plugin-theme-ui/index';
 
 const SeoQuery = graphql`
   query DefaultSEOQuery {
@@ -30,8 +32,12 @@ const SeoQuery = graphql`
 `;
 
 function SEO({ description, lang, meta, keywords, title, image }) {
+  const [colorMode] = useColorMode();
+  const isDark = colorMode === `dark`;
+  const themeColor = isDark
+    ? Theme.colors.modes.dark.primary
+    : Theme.colors.primary;
   const { site } = useStaticQuery(SeoQuery) || {};
-  console.log(site.keywords);
   const metaDescription =
     description || site.description[lang] || site.description.en || '';
   const siteTitle = site.title[lang] || site.title.en || '';
@@ -41,8 +47,11 @@ function SEO({ description, lang, meta, keywords, title, image }) {
     <Helmet
       htmlAttributes={{ lang }}
       title={seoTitle}
-      // titleTemplate={title === siteTitle ? '%s' : `%s | ${siteTitle}`}
       meta={[
+        {
+          name: 'theme-color',
+          content: themeColor,
+        },
         {
           name: 'description',
           content: metaDescription,
