@@ -86,7 +86,6 @@ const PostPreview = ({ post }) => {
         sx={{
           alignItems: 'center',
           justifyItems: 'center',
-          // height: '50px',
         }}
       >
         <Text>{`${toPlainText(_rawBody).slice(0, 300)}...`}</Text>
@@ -96,12 +95,6 @@ const PostPreview = ({ post }) => {
           as={LocalizedLink}
           to={`/post/${slug.current}`}
           language={language}
-          sx={{
-            width: '180px',
-            height: '100%',
-            maxHeight: '40px',
-            borderRadius: '10px',
-          }}
         >
           Keep Reading ➜
         </Button>

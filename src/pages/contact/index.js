@@ -1,7 +1,6 @@
 import React from 'react';
-
 import { navigate } from 'gatsby';
-import { Box, Label, Input, Textarea, Button } from 'theme-ui';
+import { Label, Input, Textarea, Button, Flex, Heading } from 'theme-ui';
 import { useLocalization } from 'gatsby-theme-i18n';
 import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
@@ -44,77 +43,64 @@ class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1>Contact</h1>
-              <Box
-                as="form"
-                name="contact"
-                method="post"
-                action="/contact/thanks/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
-                onSubmit={this.handleSubmit}
-              >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <Input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <Label>
-                    Don’t fill this out:{' '}
-                    <input name="bot-field" onChange={this.handleChange} />
-                  </Label>
-                </div>
-                <div className="field">
-                  <Label className="label" htmlFor="name">
-                    Your name
-                  </Label>
-                  <div className="control">
-                    <Input
-                      className="input"
-                      type="text"
-                      name="name"
-                      onChange={this.handleChange}
-                      id="name"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <Label className="label" htmlFor="email">
-                    Email
-                  </Label>
-                  <div className="control">
-                    <Input
-                      className="input"
-                      type="email"
-                      name="email"
-                      onChange={this.handleChange}
-                      id="email"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <Label className="label" htmlFor="message">
-                    Message
-                  </Label>
-                  <div className="control">
-                    <Textarea
-                      className="textarea"
-                      name="message"
-                      onChange={this.handleChange}
-                      id="message"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="field">
-                  <Button type="submit">Send</Button>
-                </div>
-              </Box>
+        <section>
+          <Heading> {this.props.t('contact')} </Heading>
+          <Flex
+            as="form"
+            name="contact"
+            method="post"
+            action="/contact/thanks/"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={this.handleSubmit}
+            sx={{
+              flexDirection: 'column',
+              gap: '10px',
+            }}
+          >
+            {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
+            <Input type="hidden" name="form-name" value="contact" />
+            <div hidden>
+              <Label>
+                Don’t fill this out:
+                <input name="bot-field" onChange={this.handleChange} />
+              </Label>
             </div>
-          </div>
+            <Flex sx={{ flexDirection: 'column' }}>
+              <Label className="label" htmlFor="name">
+                {this.props.t('name')}
+              </Label>
+              <Input
+                type="text"
+                name="name"
+                onChange={this.handleChange}
+                id="name"
+                required
+              />
+            </Flex>
+            <Flex sx={{ flexDirection: 'column' }}>
+              <Label htmlFor="email">{this.props.t('email')}</Label>
+              <Input
+                type="email"
+                name="email"
+                onChange={this.handleChange}
+                id="email"
+                required
+              />
+            </Flex>
+            <Flex sx={{ flexDirection: 'column' }}>
+              <Label htmlFor="message">{this.props.t('message')}</Label>
+              <Textarea
+                name="message"
+                onChange={this.handleChange}
+                id="message"
+                required
+              />
+            </Flex>
+            <Flex>
+              <Button type="submit">{this.props.t('submit')}</Button>
+            </Flex>
+          </Flex>
         </section>
       </Layout>
     );
@@ -124,11 +110,11 @@ class Index extends React.Component {
 
 const ContactPageWithLocalHook = () => {
   const { locale } = useLocalization();
-  const { t } = useTranslation('Nav');
+  const { t } = useTranslation('Contact');
   return (
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <SEO title={t('contact')} lang={locale} />
-      <Index locale={locale} />
+      <Index locale={locale} t={t} />
     </main>
   );
 };

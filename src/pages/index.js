@@ -43,12 +43,7 @@ const IndexPage = ({ data }) => {
             <PostPreview post={post} key={`${i} ${post._id}`} />
           ))}
         </Flex>
-        <Button
-          as={LocalizedLink}
-          to="/blog"
-          sx={{ width: '150px', borderRadius: '10px', height: '40px' }}
-          variant="secondary"
-        >
+        <Button as={LocalizedLink} to="/blog" variant="secondary">
           See more posts
         </Button>
       </Flex>

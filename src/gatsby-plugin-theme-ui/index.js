@@ -270,6 +270,10 @@ export default {
       textTransform: 'capitalize',
       color: 'background',
       transitionDuration: '0.2s',
+      width: '180px',
+      height: '100%',
+      maxHeight: '40px',
+      borderRadius: '10px',
       ':hover': {
         color: 'primary',
         backgroundColor: 'darken',
@@ -281,16 +285,19 @@ export default {
     },
     secondary: {
       fontWeight: 'bold',
+      backgroundColor: 'darken',
       border: '2px solid',
       borderColor: 'primary',
-
-      color: 'primary',
-      backgroundColor: 'darken',
       textTransform: 'capitalize',
+      color: 'primary',
       transitionDuration: '0.2s',
+      width: '180px',
+      height: '100%',
+      maxHeight: '40px',
+      borderRadius: '10px',
       ':hover': {
-        backgroundColor: 'primary',
         color: 'background',
+        backgroundColor: 'primary',
         cursor: 'pointer',
       },
       ':active': {
