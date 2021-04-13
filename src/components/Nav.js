@@ -23,7 +23,10 @@ const Nav = () => {
       }}
     >
       <Flex
+        as="ul"
         sx={{
+          listStyle: 'none',
+          p: 0,
           alignItems: 'center',
           justifyItems: 'center',
           justifyContent: 'space-between',
@@ -32,59 +35,80 @@ const Nav = () => {
           flexDirection: 'row',
         }}
       >
-        <NavLink as={LocalizedLink} to="/">
-          <Flex
-            sx={{
-              width: ['100px', '125px', '150px'],
-              display: 'inline-flex',
-              direction: 'ltr',
-              alignItems: 'center',
-              justifyItems: 'center',
-            }}
-          >
-            <Logo />
-          </Flex>
-        </NavLink>
-        <NavLink as={LocalizedLink} to="/blog">
-          {t('blog')}
-        </NavLink>
-        <NavLink as={LocalizedLink} to="/categories">
-          {t('categories')}
-        </NavLink>
-        <NavLink as={LocalizedLink} to="/about">
-          {t('about')}
-        </NavLink>
-        <NavLink as={LocalizedLink} to="/contact">
-          {t('contact')}
-        </NavLink>
+        <li>
+          <NavLink as={LocalizedLink} to="/">
+            <Flex
+              sx={{
+                width: ['100px', '125px', '150px'],
+                display: 'inline-flex',
+                direction: 'ltr',
+                alignItems: 'center',
+                justifyItems: 'center',
+              }}
+            >
+              <Logo />
+            </Flex>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink as={LocalizedLink} to="/blog">
+            {t('blog')}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink as={LocalizedLink} to="/categories">
+            {t('categories')}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink as={LocalizedLink} to="/about">
+            {t('about')}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink as={LocalizedLink} to="/contact">
+            {t('contact')}
+          </NavLink>
+        </li>
       </Flex>
       <Flex
         sx={{
+          listStyle: 'none',
+          p: 0,
           justifySelf: 'flex-end',
           alignItems: 'center',
           justifyItems: 'center',
           gap: ['5px', '8px', '10px'],
           flexWrap: 'wrap',
         }}
+        as="ul"
       >
         {locale !== 'ar' && (
-          <NavLink as={Link} to="/ar">
-            عربي
-          </NavLink>
+          <li>
+            <NavLink as={Link} to="/ar">
+              عربي
+            </NavLink>
+          </li>
         )}
         {locale !== 'en' && (
-          <NavLink as={Link} to="/">
-            English
-          </NavLink>
+          <li>
+            <NavLink as={Link} to="/">
+              English
+            </NavLink>
+          </li>
         )}
         {locale !== 'fr' && (
-          <NavLink as={Link} to="/fr">
-            Français
-          </NavLink>
+          <li>
+            <NavLink as={Link} to="/fr">
+              Français
+            </NavLink>
+          </li>
         )}
-        <ColorModeToggle>
-          <NavLink as={Flex}>{t('toggle')}</NavLink>
-        </ColorModeToggle>
+        <li>
+          <ColorModeToggle>
+            <NavLink as={Flex}>{t('toggle')}</NavLink>
+          </ColorModeToggle>
+        </li>
       </Flex>
     </Flex>
   );

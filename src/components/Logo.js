@@ -6,6 +6,8 @@ function Logo() {
   const [colorMode] = useColorMode();
   return (
     <StaticImage
+      as="figure"
+      style={{ padding: 0, margin: 0 }}
       src="../images/logo.png"
       alt="logo"
       imgStyle={{

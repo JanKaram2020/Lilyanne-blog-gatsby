@@ -1,7 +1,7 @@
 import React from 'react';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import { useTranslation } from 'react-i18next';
-import { Box, Flex, Link } from 'theme-ui';
+import { Flex, Link } from 'theme-ui';
 import Logo from './Logo';
 
 const Footer = () => {
@@ -14,73 +14,89 @@ const Footer = () => {
         alignItems: 'center',
         justifyItems: 'center',
         bg: 'darken',
-        p: '2rem 0 2rem 0',
+        p: '10px',
       }}
     >
-      <Flex
-        sx={{
-          width: ['250px', '300px', '350px'],
-        }}
-      >
+      <Flex sx={{ width: ['250px', '300px', '350px'] }}>
         <Logo />
       </Flex>
-      <Box
+      <Flex
         sx={{
-          display: 'flex',
           flexDirection: ['column', 'column', 'row'],
           justifyContent: ['flex-start', 'flex-start', 'space-between'],
           gap: ['10px', null, '10rem', '20rem'],
         }}
       >
-        <Flex sx={{ flexDirection: 'column' }}>
-          <Link variant="footer" as={LocalizedLink} to="/blog">
-            {t('blog')}
-          </Link>
-          <Link variant="footer" as={LocalizedLink} to="/categories">
-            {t('categories')}
-          </Link>
-          <Link variant="footer" as={LocalizedLink} to="/about">
-            {t('about')}
-          </Link>
-          <Link variant="footer" as={LocalizedLink} to="/contact">
-            {t('contact')}
-          </Link>
+        <Flex
+          as="ul"
+          sx={{ listStyle: 'none', padding: 0, flexDirection: 'column' }}
+        >
+          <li>
+            <Link variant="footer" as={LocalizedLink} to="/blog">
+              {t('blog')}
+            </Link>
+          </li>
+          <li>
+            <Link variant="footer" as={LocalizedLink} to="/categories">
+              {t('categories')}
+            </Link>
+          </li>
+          <li>
+            <Link variant="footer" as={LocalizedLink} to="/about">
+              {t('about')}
+            </Link>
+          </li>
+          <li>
+            <Link variant="footer" as={LocalizedLink} to="/contact">
+              {t('contact')}
+            </Link>
+          </li>
         </Flex>
-        <Flex sx={{ flexDirection: 'column' }}>
-          <Link variant="footer" as={LocalizedLink} to="/blog">
-            {t('Latest Stories')}
-          </Link>
-          <Link variant="footer" as={LocalizedLink} to="/contact">
-            {t('contact')}
-          </Link>
+        <Flex as="ul" sx={{ listStyle: 'none', p: 0, flexDirection: 'column' }}>
+          <li>
+            <Link variant="footer" as={LocalizedLink} to="/blog">
+              {t('Latest Stories')}
+            </Link>
+          </li>
+          <li>
+            <Link variant="footer" as={LocalizedLink} to="/contact">
+              {t('contact')}
+            </Link>
+          </li>
         </Flex>
-        <Flex sx={{ flexDirection: 'column' }}>
-          <Link
-            variant="footer"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </Link>
-          <Link
-            variant="footer"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </Link>
-          <Link
-            variant="footer"
-            href="https://www.facebook.com/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Facebook
-          </Link>
+        <Flex as="ul" sx={{ listStyle: 'none', p: 0, flexDirection: 'column' }}>
+          <li>
+            <Link
+              variant="footer"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </Link>
+          </li>
+          <li>
+            <Link
+              variant="footer"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </Link>
+          </li>
+          <li>
+            <Link
+              variant="footer"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Facebook
+            </Link>
+          </li>
         </Flex>
-      </Box>
+      </Flex>
     </Flex>
   );
 };

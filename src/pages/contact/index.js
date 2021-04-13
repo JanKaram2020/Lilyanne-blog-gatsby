@@ -6,9 +6,6 @@ import { useTranslation } from 'react-i18next';
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
 
-// TODO add localization
-// TODO : add localization to this page and to thanks page
-
 function encode(data) {
   return Object.keys(data)
     .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
@@ -44,7 +41,7 @@ class Index extends React.Component {
     return (
       <Layout>
         <section>
-          <Heading> {this.props.t('contact')} </Heading>
+          <Heading py="10px">{this.props.t('contact')} </Heading>
           <Flex
             as="form"
             name="contact"

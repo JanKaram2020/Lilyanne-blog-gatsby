@@ -74,6 +74,8 @@ export default {
       fontFamily: 'body',
       lineHeight: 'body',
       wordBreak: 'break-word',
+      margin: 0,
+      padding: 0,
     },
     p: {
       color: 'text',

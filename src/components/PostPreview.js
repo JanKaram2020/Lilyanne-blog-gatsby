@@ -1,9 +1,7 @@
 /** @jsx jsx */
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { LocalizedLink } from 'gatsby-theme-i18n';
-import React from 'react';
 import {
-  Box,
   Grid,
   Heading,
   Flex,
@@ -60,11 +58,11 @@ const PostPreview = ({ post }) => {
           }}
         />
 
-        <Box
+        <Flex
           sx={{
-            display: 'flex',
             flexDirection: 'column',
             justifyContent: 'space-evenly',
+            gap: '10px',
           }}
         >
           <NavLink
@@ -80,7 +78,7 @@ const PostPreview = ({ post }) => {
             </h3>
           ))}
           <h3 sx={{ margin: 0, padding: 0 }}> {publishedAt}</h3>
-        </Box>
+        </Flex>
       </Grid>
       <Flex
         sx={{

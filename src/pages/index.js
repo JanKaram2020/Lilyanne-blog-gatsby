@@ -34,7 +34,7 @@ const IndexPage = ({ data }) => {
           sx={{
             flexDirection: ['column', 'row'],
             flexWrap: 'wrap',
-            gap: ['10px', '20px', '30px'],
+            gap: '10px',
             alignContent: 'center',
             justifyContent: 'center',
           }}
