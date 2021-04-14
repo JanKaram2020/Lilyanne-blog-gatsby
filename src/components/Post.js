@@ -24,14 +24,10 @@ const Post = ({ post }) => {
       }}
     >
       <BaseStyles>
-        <LocalizedLink to={`/post/${post.slug.current}`}>
-          {post.slug.current}
-        </LocalizedLink>
+        <LocalizedLink to={`/blog/${post.slug.current}`}>{title}</LocalizedLink>
         <h2>{title}</h2>
         <h3>{author}</h3>
-        {categories.map((category, i) => (
-          <h3 key={i}>{category.title[lang]}</h3>
-        ))}
+        <h3>{categories.title[lang]}</h3>
         <GatsbyImage
           image={image}
           alt={title}

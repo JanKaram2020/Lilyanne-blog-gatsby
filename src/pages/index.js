@@ -6,7 +6,9 @@ import Hero from '../components/Hero';
 import Layout from '../components/Layout';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
+import { see, latest } from '../translations/index.translation';
 // TODO consider refactoring all languages to use source form sanity
+// TODO consider adding suggestions for other articles in bottom of an article
 // markup
 const IndexPage = ({ data }) => {
   const { locale } = useLocalization();
@@ -28,7 +30,7 @@ const IndexPage = ({ data }) => {
         as="section"
       >
         <Heading as="h1" sx={{ textAlign: 'center' }}>
-          Latest Stories
+          {latest[locale]}
         </Heading>
         <Flex
           sx={{
@@ -44,7 +46,7 @@ const IndexPage = ({ data }) => {
           ))}
         </Flex>
         <Button as={LocalizedLink} to="/blog" variant="secondary">
-          See more posts
+          {see[locale]}
         </Button>
       </Flex>
     </Layout>

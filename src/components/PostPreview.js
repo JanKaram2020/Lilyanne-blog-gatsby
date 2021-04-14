@@ -13,8 +13,7 @@ import {
   useColorMode,
 } from 'theme-ui';
 import { toPlainText } from '../helpers';
-
-// TODO add localization here
+import { keep } from '../translations/PostPreview.translation';
 
 const PostPreview = ({ post }) => {
   const {
@@ -27,6 +26,7 @@ const PostPreview = ({ post }) => {
     categories,
   } = post;
   const [colorMode] = useColorMode();
+
   return (
     <Card
       as="article"
@@ -67,16 +67,14 @@ const PostPreview = ({ post }) => {
         >
           <NavLink
             as={LocalizedLink}
-            to={`/post/${slug.current}`}
+            to={`/blog/${slug.current}`}
             language={language}
           >
             <Heading sx={{ fontSize: 5, color: 'primary' }}>{title}</Heading>
           </NavLink>
-          {categories.map((category, i) => (
-            <h3 sx={{ margin: 0, padding: 0 }} key={`category key ${i}`}>
-              {category ? category.title[language] : ''}
-            </h3>
-          ))}
+          <h3 sx={{ margin: 0, padding: 0 }}>
+            {categories ? categories.title[language] : ''}
+          </h3>
           <h3 sx={{ margin: 0, padding: 0 }}> {publishedAt}</h3>
         </Flex>
       </Grid>
@@ -91,10 +89,10 @@ const PostPreview = ({ post }) => {
       <Flex>
         <Button
           as={LocalizedLink}
-          to={`/post/${slug.current}`}
+          to={`/blog/${slug.current}`}
           language={language}
         >
-          Keep Reading ➜
+          {keep[language]}
         </Button>
       </Flex>
     </Card>

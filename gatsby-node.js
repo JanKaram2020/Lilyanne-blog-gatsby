@@ -28,7 +28,7 @@ exports.createPages = async ({ graphql, actions }) => {
   );
   currentPosts.forEach((node) => {
     createPage({
-      path: `post/${node.slug.current}`,
+      path: `blog/${node.slug.current}`,
       component: blogPostTemplate,
       context: { slug: node.slug.current },
     });

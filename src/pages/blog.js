@@ -1,43 +1,51 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
-import { useTranslation } from 'react-i18next';
-import { Flex } from 'theme-ui';
+import { Flex, Button } from 'theme-ui';
 import Layout from '../components/Layout';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
+import { blog as title } from '../translations/Nav.transaltion';
 // TODO consider refactoring all languages to use source form sanity
+// TODO fix errors here
 // markup
 const BlogPage = ({ data }) => {
   const { locale } = useLocalization();
-  const { t } = useTranslation('Nav');
-  const posts = data.allSanityPost.nodes;
-  const currentPosts = posts.filter((post) => post.language === locale);
+  const categories = data.allSanityCategory.nodes;
+  console.log('categories are', categories);
+  const langPosts = data.allSanityPost.nodes.filter(
+    (post) => post.language === locale
+  );
+  console.log('lang posts are', langPosts);
+  const [posts, setPosts] = useState(langPosts);
+  const filterCategories = (id) => {
+    setPosts(langPosts.filter((post) => post.categories.title[locale] === id));
+    console.log(posts);
+  };
   return (
     <Layout>
-      <SEO lang={locale} title={t('blog')} />
+      <SEO lang={locale} title={title[locale]} />
+      {categories.map((category) => (
+        <Button
+          key={category.id}
+          onClick={() => filterCategories(category.title[locale])}
+        >
+          {category.title[locale]}
+        </Button>
+      ))}
       <Flex
         sx={{
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyItems: 'center',
+          flexDirection: ['column', 'row'],
+          flexWrap: 'wrap',
           gap: '10px',
+          alignContent: 'center',
+          justifyContent: 'center',
         }}
         as="section"
       >
-        <Flex
-          sx={{
-            flexDirection: ['column', 'row'],
-            flexWrap: 'wrap',
-            gap: ['10px', '20px', '30px'],
-            alignContent: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          {currentPosts.map((post, i) => (
-            <PostPreview post={post} key={`${i} ${post._id}`} />
-          ))}
-        </Flex>
+        {posts.map((post, i) => (
+          <PostPreview post={post} key={`${i} ${post._id}`} />
+        ))}
       </Flex>
     </Layout>
   );
@@ -59,6 +67,7 @@ export const query = graphql`
           }
         }
         categories {
+          _id
           title {
             ar
             en
@@ -80,7 +89,17 @@ export const query = graphql`
           current
         }
         language
-        publishedAt(formatString: "Do MM YYYY, h:mm a")
+        publishedAt(formatString: "")
+      }
+    }
+    allSanityCategory {
+      nodes {
+        id
+        title {
+          ar
+          en
+          fr
+        }
       }
     }
   }
