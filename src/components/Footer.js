@@ -11,6 +11,7 @@ import {
   facebook,
   insta,
 } from '../translations/Footer.translation';
+import { Icon } from './LogoSvg';
 
 const Footer = ({ locale }) => (
   <Flex
@@ -24,7 +25,7 @@ const Footer = ({ locale }) => (
     }}
   >
     <Flex sx={{ width: ['250px', '300px', '350px'] }}>
-      <Logo />
+      <Icon />
     </Flex>
     <Flex
       sx={{
