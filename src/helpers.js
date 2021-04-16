@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+// TODO useMediaQuery hook
 export function toPlainText(blocks) {
   if (!blocks) {
     return '';
