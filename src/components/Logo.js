@@ -7,8 +7,8 @@ function Logo() {
   return (
     <StaticImage
       as="figure"
-      style={{ padding: 0, margin: 0 }}
-      src="../images/logo.png"
+      style={{ padding: 0, margin: 0, marginLeft: '5px' }}
+      src="../images/newLogo.png"
       alt="logo"
       imgStyle={{
         filter: colorMode === 'dark' ? 'invert(100%)' : '',

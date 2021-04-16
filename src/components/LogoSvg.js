@@ -3,12 +3,16 @@ import { useColorMode } from 'theme-ui';
 import { motion } from 'framer-motion';
 import Theme from '../gatsby-plugin-theme-ui/index';
 
-export function Icon() {
+export function Icon({ style }) {
   const [colorMode] = useColorMode();
   const dark = colorMode === 'dark';
   const color = dark ? Theme.colors.modes.dark.primary : Theme.colors.primary;
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 759.93 352.58">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 759.93 352.58"
+      style={style}
+    >
       <motion.path
         fill="none"
         stroke={color}

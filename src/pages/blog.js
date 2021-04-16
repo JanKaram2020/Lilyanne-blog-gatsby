@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { graphql } from 'gatsby';
-import { useLocalization } from 'gatsby-theme-i18n';
-import { Flex, Button } from 'theme-ui';
+import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
+import { Flex, NavLink } from 'theme-ui';
 import Layout from '../components/Layout';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
@@ -12,40 +12,49 @@ import { blog as title } from '../translations/Nav.transaltion';
 const BlogPage = ({ data }) => {
   const { locale } = useLocalization();
   const categories = data.allSanityCategory.nodes;
-  console.log('categories are', categories);
   const langPosts = data.allSanityPost.nodes.filter(
     (post) => post.language === locale
   );
-  console.log('lang posts are', langPosts);
-  const [posts, setPosts] = useState(langPosts);
-  const filterCategories = (id) => {
-    setPosts(langPosts.filter((post) => post.categories.title[locale] === id));
-    console.log(posts);
-  };
   return (
     <Layout>
       <SEO lang={locale} title={title[locale]} />
-      {categories.map((category) => (
-        <Button
-          key={category.id}
-          onClick={() => filterCategories(category.title[locale])}
+      <Flex sx={{ gap: '10px', height: '100%', mx: '-10px' }}>
+        <Flex
+          as="ul"
+          sx={{
+            flex: 1,
+            flexDirection: 'column',
+            listStyle: 'none',
+            paddingLeft: '5px',
+            backgroundColor: 'darken',
+            minHeight: '100%',
+          }}
         >
-          {category.title[locale]}
-        </Button>
-      ))}
-      <Flex
-        sx={{
-          flexDirection: ['column', 'row'],
-          flexWrap: 'wrap',
-          gap: '10px',
-          alignContent: 'center',
-          justifyContent: 'center',
-        }}
-        as="section"
-      >
-        {posts.map((post, i) => (
-          <PostPreview post={post} key={`${i} ${post._id}`} />
-        ))}
+          {categories.map((category) => (
+            <li>
+              <NavLink
+                as={LocalizedLink}
+                to={`/blog/category/${category.slug.current}`}
+              >
+                {category.title[locale]}
+              </NavLink>
+            </li>
+          ))}
+        </Flex>
+        <Flex
+          sx={{
+            flex: 5,
+            flexDirection: ['column', 'row'],
+            flexWrap: 'wrap',
+            gap: '10px',
+            alignContent: 'center',
+          }}
+          as="section"
+        >
+          {langPosts.map((post, i) => (
+            <PostPreview post={post} key={`${i} ${post._id}`} />
+          ))}
+        </Flex>
       </Flex>
     </Layout>
   );
@@ -99,6 +108,9 @@ export const query = graphql`
           ar
           en
           fr
+        }
+        slug {
+          current
         }
       }
     }

@@ -1,34 +1,20 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
-import { Button, Flex, Heading } from 'theme-ui';
-import Hero from '../components/Hero';
+import { useLocalization } from 'gatsby-theme-i18n';
+import { Flex, Heading } from 'theme-ui';
 import Layout from '../components/Layout';
-import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
-import { see, latest } from '../translations/index.translation';
 // TODO consider refactoring all languages to use source form sanity
 // TODO consider adding suggestions for other articles in bottom of an article
 // markup
-const IndexPage = ({ data }) => {
+const CategoryPage = ({ data }) => {
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
-  const currentPosts = posts
-    .filter((post) => post.language === locale)
-    .slice(0, 4);
+  const currentPosts = posts.filter((post) => post.language === locale);
   return (
     <Layout>
       <SEO lang={locale} />
-      {/* <Hero /> */}
-      <Flex
-        sx={{
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        <Icon style={{ maxWidth: '500px' }} />
-      </Flex>
       <Flex
         sx={{
           flexDirection: 'column',
@@ -39,7 +25,7 @@ const IndexPage = ({ data }) => {
         as="section"
       >
         <Heading as="h1" sx={{ textAlign: 'center' }}>
-          {latest[locale]}
+          {data.sanityCategory.title[locale]}
         </Heading>
         <Flex
           sx={{
@@ -54,31 +40,32 @@ const IndexPage = ({ data }) => {
             <PostPreview post={post} key={`${i} ${post._id}`} />
           ))}
         </Flex>
-        <Button as={LocalizedLink} to="/blog" variant="secondary">
-          {see[locale]}
-        </Button>
       </Flex>
     </Layout>
   );
 };
 export const query = graphql`
-  query PostsQuery {
+  query($slug: String!) {
+    sanityCategory(slug: { current: { eq: $slug } }) {
+      title {
+        ar
+        en
+        fr
+      }
+    }
     allSanityPost(
       sort: { fields: [publishedAt], order: DESC }
-      filter: { slug: { current: { ne: null } }, publishedAt: { ne: null } }
+      filter: {
+        slug: { current: { ne: null } }
+        publishedAt: { ne: null }
+        categories: { slug: { current: { eq: $slug } } }
+      }
     ) {
       totalCount
       nodes {
         _rawBody
         author {
           name {
-            ar
-            en
-            fr
-          }
-        }
-        categories {
-          title {
             ar
             en
             fr
@@ -105,4 +92,4 @@ export const query = graphql`
     }
   }
 `;
-export default IndexPage;
+export default CategoryPage;

@@ -3,8 +3,14 @@ import { Flex, NavLink, jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import ColorModeToggle from './ColorButton';
-import { blog, about, contact, toggle } from '../translations/Nav.transaltion';
-import { Icon } from './LogoSvg';
+import Logo from './Logo';
+import {
+  blog,
+  categories,
+  about,
+  contact,
+  toggle,
+} from '../translations/Nav.transaltion';
 
 const Nav = ({ locale }) => (
   <Flex
@@ -30,7 +36,6 @@ const Nav = ({ locale }) => (
         gap: ['5px', '8px', '10px'],
         flexWrap: 'wrap',
         flexDirection: 'row',
-        position: 'relative',
       }}
     >
       <li>
@@ -42,11 +47,9 @@ const Nav = ({ locale }) => (
               direction: 'ltr',
               alignItems: 'center',
               justifyItems: 'center',
-              m: '2px',
-              marginBottom: 0,
             }}
           >
-            <Icon />
+            <Logo />
           </Flex>
         </NavLink>
       </li>
