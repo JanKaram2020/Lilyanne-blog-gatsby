@@ -9,6 +9,7 @@ import {
   name,
   email,
   message,
+  submit,
 } from '../../translations/contact.translation';
 
 function encode(data) {
@@ -100,7 +101,7 @@ class Index extends React.Component {
             />
           </Flex>
           <Flex>
-            <Button type="submit">submit</Button>
+            <Button type="submit">{submit[locale]}</Button>
           </Flex>
         </Flex>
       </section>

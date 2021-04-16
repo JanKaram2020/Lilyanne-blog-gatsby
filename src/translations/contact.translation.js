@@ -18,3 +18,8 @@ export const message = {
   en: 'message',
   fr: 'un message',
 };
+export const submit = {
+  ar: 'ارسل',
+  en: 'send',
+  fr: 'envoyer',
+};
