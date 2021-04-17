@@ -4,13 +4,7 @@ import { Link } from 'gatsby';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import ColorModeToggle from './ColorButton';
 import Logo from './Logo';
-import {
-  blog,
-  categories,
-  about,
-  contact,
-  toggle,
-} from '../translations/Nav.transaltion';
+import { blog, about, contact, toggle } from '../translations/Nav.transaltion';
 
 const Nav = ({ locale }) => (
   <Flex
