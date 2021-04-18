@@ -22,7 +22,7 @@ const PostPreview = ({ post }) => {
     language,
     publishedAt,
     slug,
-    _rawBody,
+    _rawBody: postBody,
     categories,
   } = post;
   const [colorMode] = useColorMode();
@@ -86,7 +86,7 @@ const PostPreview = ({ post }) => {
           justifyItems: 'center',
         }}
       >
-        <Text>{`${toPlainText(_rawBody).slice(0, 300)}...`}</Text>
+        <Text>{`${toPlainText(postBody).slice(0, 300)}...`}</Text>
       </Flex>
       <Flex>
         <Button

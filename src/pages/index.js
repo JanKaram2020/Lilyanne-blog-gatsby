@@ -83,6 +83,9 @@ export const query = graphql`
             en
             fr
           }
+          slug {
+            current
+          }
         }
         title
         mainImage {
