@@ -18,43 +18,19 @@ const BlogPage = ({ data }) => {
   return (
     <Layout>
       <SEO lang={locale} title={title[locale]} />
-      <Flex sx={{ gap: '10px', height: '100%', mx: '-10px' }}>
-        <Flex
-          as="ul"
-          sx={{
-            flex: 1,
-            flexDirection: 'column',
-            listStyle: 'none',
-            paddingLeft: '5px',
-            backgroundColor: 'darken',
-            minHeight: '100%',
-          }}
-        >
-          {categories.map((category) => (
-            <li>
-              <NavLink
-                as={LocalizedLink}
-                to={`/blog/category/${category.slug.current}`}
-              >
-                {category.title[locale]}
-              </NavLink>
-            </li>
-          ))}
-        </Flex>
-        <Flex
-          sx={{
-            flex: 5,
-            flexDirection: ['column', 'row'],
-            flexWrap: 'wrap',
-            gap: '10px',
-            alignContent: 'center',
-          }}
-          as="section"
-        >
-          {langPosts.map((post, i) => (
-            <PostPreview post={post} key={`${i} ${post._id}`} />
-          ))}
-        </Flex>
+      <Flex
+        sx={{
+          flexDirection: ['column', 'row'],
+          flexWrap: 'wrap',
+          gap: '10px',
+          alignContent: 'center',
+          justifyContent: 'center',
+        }}
+        as="section"
+      >
+        {langPosts.map((post, i) => (
+          <PostPreview post={post} key={`${i} ${post._id}`} />
+        ))}
       </Flex>
     </Layout>
   );
