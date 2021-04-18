@@ -1,7 +1,7 @@
 export const see = {
-  ar: 'المزيد',
-  en: 'see more',
-  fr: 'see more in french',
+  ar: 'بقية المقالات',
+  en: 'more articles',
+  fr: "plus d'articles",
 };
 export const latest = {
   ar: 'اخر المقالات',
