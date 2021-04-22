@@ -19,44 +19,43 @@ export function Icon({ style }) {
         stroke={color}
         strokeMiterlimit="10"
         strokeWidth="15"
-        d="M7.5 7.5H307.5V307.5H7.5z"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 1, delay: 0 }}
+        d="M7.5 7.5H307.5V307.5H7.5z"
       />
       <motion.path
         fill="none"
         stroke={color}
         strokeMiterlimit="10"
         strokeWidth="15"
-        d="M7.5 7.5L307.5 307.5"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-      />
-      <motion.path
-        fill="#none"
-        stroke={color}
-        strokeMiterlimit="10"
-        strokeWidth="15"
-        d="M157.5 157.5L307.5 157.5"
-        initial={{ pathLength: 0 }}
-        animate={{ pathLength: 1 }}
-        transition={{ duration: 1, delay: 1 }}
+        d="M7.5 7.5L307.5 307.5"
       />
       <motion.path
         fill="none"
         stroke={color}
         strokeMiterlimit="10"
         strokeWidth="15"
-        d="M268.62,160.7c.17-3.82,2.06-69.94-51.15-103.08-43.75-27.25-103.66-19-140.79,18.84C40,113.92,33.47,172.29,60.18,216.81c24.87,41.44,75.57,66,125.1,53.06C238.42,256,266.6,205.2,268.62,160.7Z"
+        initial={{ pathLength: 0 }}
+        animate={{ pathLength: 1 }}
+        transition={{ duration: 1, delay: 1 }}
+        d="M157.5 157.5L307.5 157.5"
+      />
+      <motion.path
+        fill="none"
+        stroke={color}
+        strokeMiterlimit="10"
+        strokeWidth="15"
         initial={{ pathLength: 0 }}
         animate={{ pathLength: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
+        d="M268.62,160.7c.17-3.82,2.06-69.94-51.15-103.08-43.75-27.25-103.66-19-140.79,18.84C40,113.92,33.47,172.29,60.18,216.81c24.87,41.44,75.57,66,125.1,53.06C238.42,256,266.6,205.2,268.62,160.7Z"
       />
       {/* name starts here */}
       <motion.path
-        d="M367.22 76v6.33Q349.36 106 338.16 106q-6.06 0-9.53-6.62t-3.46-17.4q0-8.72 4.1-20.72a150.13 150.13 0 0111-24.36 152.55 152.55 0 0114.27-21.53q7.39-9.19 13.72-12.87a8.71 8.71 0 014-1.53 2.3 2.3 0 012.39 1.58 17 17 0 01.6 5.42q0 11.88-9.65 29.19t-26.93 35.3a38.92 38.92 0 00-.85 6.84 15.32 15.32 0 002.35 8.88 7.51 7.51 0 006.54 3.42 8.4 8.4 0 004.61-1.66 47.89 47.89 0 005.22-4.15q2.73-2.47 10.68-9.79zm-25.55-15.42a85.77 85.77 0 008.58-9.91 126.45 126.45 0 007.83-11.88 98.39 98.39 0 005.76-11.37q2.1-5 2.1-7.61c0-1.31-.46-2-1.37-2a5 5 0 00-2 .94q-5.21 4.28-11.7 16.71a99.44 99.44 0 00-9.2 25.12z"
         fill="none"
         stroke={color}
         strokeMiterlimit="10"
@@ -64,6 +63,7 @@ export function Icon({ style }) {
         initial={{ fill: initialColor, pathLength: 0 }}
         animate={{ fill: color, pathLength: 1 }}
         transition={{ duration: 1, delay: 2.5 }}
+        d="M367.22 76v6.33Q349.36 106 338.16 106q-6.06 0-9.53-6.62t-3.46-17.4q0-8.72 4.1-20.72a150.13 150.13 0 0111-24.36 152.55 152.55 0 0114.27-21.53q7.39-9.19 13.72-12.87a8.71 8.71 0 014-1.53 2.3 2.3 0 012.39 1.58 17 17 0 01.6 5.42q0 11.88-9.65 29.19t-26.93 35.3a38.92 38.92 0 00-.85 6.84 15.32 15.32 0 002.35 8.88 7.51 7.51 0 006.54 3.42 8.4 8.4 0 004.61-1.66 47.89 47.89 0 005.22-4.15q2.73-2.47 10.68-9.79zm-25.55-15.42a85.77 85.77 0 008.58-9.91 126.45 126.45 0 007.83-11.88 98.39 98.39 0 005.76-11.37q2.1-5 2.1-7.61c0-1.31-.46-2-1.37-2a5 5 0 00-2 .94q-5.21 4.28-11.7 16.71a99.44 99.44 0 00-9.2 25.12z"
       />
       <motion.path
         fill="none"
