@@ -12,7 +12,7 @@ const NotFoundPage = () => {
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <SEO title={notFound[locale]} lang={locale} />
       <Layout>
-        <Icon />
+        <Icon style={{ maxWidth: '500px' }} />
         <h1>{notFound[locale]}</h1>
         <NavLink as={LocalizedLink} to="/">
           {home[locale]}

@@ -7,7 +7,7 @@ export function Icon({ style }) {
   const [colorMode] = useColorMode();
   const dark = colorMode === 'dark';
   const color = dark ? Theme.colors.modes.dark.primary : Theme.colors.primary;
-  const initialColor = dark ? `rgba(0,204,255,0.00)` : `rgba(255,97,60,0.00)`;
+  const initialColor = dark ? `rgba(0,204,255,0)` : `rgba(255,97,60,0)`;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
