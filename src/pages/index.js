@@ -2,8 +2,8 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
 import { Button, Flex, Heading } from 'theme-ui';
-import Hero from '../components/Hero';
 import Layout from '../components/Layout';
+import Logo from '../components/Logo';
 import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
@@ -12,6 +12,7 @@ import { see, latest } from '../translations/index.translation';
 // TODO consider adding suggestions for other articles in bottom of an article
 // markup
 const IndexPage = ({ data }) => {
+  const canSvg = typeof SVGRect !== 'undefined'; // true if supported, false if not
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
   const currentPosts = posts
@@ -27,7 +28,11 @@ const IndexPage = ({ data }) => {
           justifyContent: 'center',
         }}
       >
-        <Icon style={{ maxWidth: '500px' }} />
+        {canSvg ? (
+          <Icon style={{ maxWidth: '500px' }} />
+        ) : (
+          <Logo style={{ maxWidth: '500px' }} />
+        )}
       </Flex>
       <Flex
         sx={{
