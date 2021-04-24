@@ -27,8 +27,6 @@ const PostPreview = ({ post }) => {
     categories,
   } = post;
   const [colorMode] = useColorMode();
-  console.log(categories);
-
   return (
     <Card
       sx={{
