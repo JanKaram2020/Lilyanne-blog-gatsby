@@ -9,7 +9,6 @@ import { toPlainText } from '../helpers';
 const PostPage = ({ data }) => {
   const post = data.sanityPost;
   const { locale } = useLocalization();
-  console.log(post);
   return (
     <>
       <SEO
