@@ -6,13 +6,11 @@ import clientConfig from '../../client-config';
 
 const Figure = ({ node }) => {
   const [colorMode] = useColorMode();
-  console.log('node is', node);
   const gatsbyImageData = getGatsbyImageData(
     node.asset._ref,
     { maxWidth: 700 },
     clientConfig.sanity
   );
-  console.log('gatsby image is', gatsbyImageData);
   if (!node || !node.asset || !node.asset._ref) {
     return null;
   }
