@@ -71,6 +71,11 @@ export const query = graphql`
             fr
           }
         }
+        categories {
+          slug {
+            current
+          }
+        }
         title
         mainImage {
           asset {

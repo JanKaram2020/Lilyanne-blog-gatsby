@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import React from 'react';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import {
@@ -26,6 +27,7 @@ const PostPreview = ({ post }) => {
     categories,
   } = post;
   const [colorMode] = useColorMode();
+  console.log(categories);
 
   return (
     <Card
@@ -40,9 +42,6 @@ const PostPreview = ({ post }) => {
         maxHeight: '695px',
         borderRadius: '10px',
       }}
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ opacity: 1, scale: [0, 1.5, 1] }}
-      exit={{ opacity: 0 }}
     >
       <Grid
         sx={{
@@ -53,6 +52,7 @@ const PostPreview = ({ post }) => {
         <GatsbyImage
           image={mainImage.asset.gatsbyImageData}
           alt={mainImage.alt ? mainImage.alt : title}
+          height={250}
           sx={{
             height: ['250px', null, '240px'],
             borderRadius: '10px',
@@ -72,10 +72,36 @@ const PostPreview = ({ post }) => {
             to={`/blog/post/${slug.current}`}
             language={language}
           >
-            <Heading sx={{ fontSize: 5, color: 'primary' }}>{title}</Heading>
+            <Heading
+              sx={{
+                fontSize: 5,
+                color: 'primary',
+                ':hover': {
+                  color: 'text',
+                },
+              }}
+            >
+              {title}
+            </Heading>
           </NavLink>
-          {categories && (
-            <h3 sx={{ margin: 0, padding: 0 }}>{categories.title[language]}</h3>
+          {categories.title && (
+            <h3 sx={{ margin: 0, padding: 0 }}>
+              {categories.slug ? (
+                <LocalizedLink
+                  to={`/blog/category/${categories.slug.current}`}
+                  sx={{
+                    color: 'inherit',
+                    ':hover': {
+                      color: 'primary',
+                    },
+                  }}
+                >
+                  {categories.title[language]}
+                </LocalizedLink>
+              ) : (
+                categories.title[language]
+              )}
+            </h3>
           )}
           <h3 sx={{ margin: 0, padding: 0 }}> {publishedAt}</h3>
         </Flex>

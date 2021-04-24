@@ -10,6 +10,7 @@ const Nav = ({ locale }) => (
   <Flex
     as="nav"
     sx={{
+      display: ['none', null, 'flex'],
       bg: 'darken',
       alignItems: 'center',
       justifyItems: 'center',
