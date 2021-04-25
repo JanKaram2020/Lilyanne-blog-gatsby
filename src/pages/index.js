@@ -12,7 +12,11 @@ import { see, latest } from '../translations/index.translation';
 // TODO consider adding suggestions for other articles in bottom of an article
 // markup
 const IndexPage = ({ data }) => {
-  const canSvg = typeof SVGRect !== 'undefined'; // true if supported, false if not
+  const canSvg =
+    !!document.createElementNS &&
+    !!document.createElementNS('http://www.w3.org/2000/svg', 'svg')
+      .createSVGRect;
+  console.log(canSvg);
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
   const currentPosts = posts
@@ -29,9 +33,9 @@ const IndexPage = ({ data }) => {
         }}
       >
         {canSvg ? (
-          <Icon style={{ maxWidth: '500px' }} />
+          <Icon style={{ maxWidth: '350px' }} />
         ) : (
-          <Logo style={{ maxWidth: '500px' }} />
+          <Logo style={{ maxWidth: '600px' }} />
         )}
       </Flex>
       <Flex
