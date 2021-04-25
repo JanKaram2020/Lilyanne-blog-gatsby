@@ -338,7 +338,7 @@ export default {
     footer: {
       color: 'text',
       fontFamily: 'heading',
-      fontSize: 3,
+      fontSize: [4, 3],
       ':hover': {
         color: 'primary',
       },
