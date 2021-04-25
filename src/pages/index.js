@@ -1,7 +1,8 @@
+/** @jsx jsx */
 import React from 'react';
 import { graphql } from 'gatsby';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
-import { Button, Flex, Heading } from 'theme-ui';
+import { Button, Flex, Heading, Grid, jsx } from 'theme-ui';
 import Layout from '../components/Layout';
 import Logo from '../components/Logo';
 import { Icon } from '../components/LogoSvg';
@@ -12,11 +13,6 @@ import { see, latest } from '../translations/index.translation';
 // TODO consider adding suggestions for other articles in bottom of an article
 // markup
 const IndexPage = ({ data }) => {
-  const canSvg =
-    !!document.createElementNS &&
-    !!document.createElementNS('http://www.w3.org/2000/svg', 'svg')
-      .createSVGRect;
-  console.log(canSvg);
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
   const currentPosts = posts
@@ -25,18 +21,40 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO lang={locale} />
-      {/* <Hero /> */}
-      <Flex
-        sx={{
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
-        {canSvg ? (
-          <Icon style={{ maxWidth: '350px' }} />
-        ) : (
-          <Logo style={{ maxWidth: '600px' }} />
-        )}
+      <Flex sx={{ alignItems: ' center', justifyContent: 'center' }}>
+        <Grid
+          sx={{
+            gridTemplateColumns: '1fr',
+            gridTemplateRows: '1fr',
+            width: '350px',
+          }}
+        >
+          <div
+            style={{
+              gridArea: '1 / 1 / 2 / 3',
+              width: '350px',
+              height: '180px',
+              zIndex: '1',
+            }}
+          >
+            <Logo />
+          </div>
+          <div
+            sx={{
+              gridArea: '1 / 1 / 2 / 3',
+              width: '350px',
+              height: '196px',
+              zIndex: '2',
+            }}
+          >
+            <Icon
+              style={{
+                width: '350px',
+                height: '196px',
+              }}
+            />
+          </div>
+        </Grid>
       </Flex>
       <Flex
         sx={{

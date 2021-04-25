@@ -7,13 +7,14 @@ export function Icon({ style }) {
   const [colorMode] = useColorMode();
   const dark = colorMode === 'dark';
   const color = dark ? Theme.colors.modes.dark.primary : Theme.colors.primary;
+  const bgColor = dark ? 'black' : 'white';
   const initialColor = dark ? `rgba(0,204,255,0)` : `rgba(255,97,60,0)`;
   return (
     <LazyMotion features={domAnimation} strict>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 759.93 352.58"
-        style={style}
+        style={{ backgroundColor: bgColor, ...style }}
       >
         <motion.path
           fill="none"
