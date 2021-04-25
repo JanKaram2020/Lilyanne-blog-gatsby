@@ -9,7 +9,6 @@ export default function Logo() {
       as="figure"
       width={350}
       style={{ padding: 0, margin: 0, marginLeft: '5px' }}
-      // src="../images/newLogo.png"
       src="../images/logo-new.png"
       alt="logo"
       imgStyle={{
