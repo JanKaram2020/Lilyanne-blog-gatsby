@@ -10,7 +10,12 @@ const Nav = ({ locale }) => (
   <Flex
     as="nav"
     sx={{
-      display: ['none', null, 'flex'],
+      // display: ['none', null, 'flex'],
+      zIndex: 20,
+      width: ['100%', 'null', 'auto'],
+      overflow: ['hidden', 'null', 'auto'],
+      position: ['fixed', 'null', 'static'],
+      bottom: [0, 'null', 'auto'],
       bg: 'darken',
       alignItems: 'center',
       justifyItems: 'center',

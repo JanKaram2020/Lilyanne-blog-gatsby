@@ -18,13 +18,14 @@ const Post = ({ post }) => {
       as="article"
       sx={{
         flexDirection: 'column',
-        maxWidth: '500px',
+        alignItems: 'center',
+        justifyContent: 'center',
+        // maxWidth: '500px',
         py: 20,
-        mx: 20,
+        // mx: 20,
       }}
     >
       <BaseStyles>
-        <LocalizedLink to={`/blog/${post.slug.current}`}>{title}</LocalizedLink>
         <h2>{title}</h2>
         <h3>{author}</h3>
         <h3>{categories.title[lang]}</h3>
@@ -33,6 +34,8 @@ const Post = ({ post }) => {
           alt={title}
           sx={{
             filter: colorMode === 'dark' && 'brightness(85%)',
+            maxWidth: '65ch',
+            maxHeight: '60vh',
           }}
         />
         <PortableText blocks={text} />
