@@ -1,6 +1,6 @@
 import React from 'react';
 import { LocalizedLink } from 'gatsby-theme-i18n';
-import { Flex, Link } from 'theme-ui';
+import { Box, Flex, Link } from 'theme-ui';
 import Logo from './Logo';
 import {
   blog,
@@ -13,9 +13,10 @@ import {
 } from '../translations/Footer.translation';
 
 const Footer = ({ locale }) => (
-  <Flex
+  <Box
     as="footer"
     sx={{
+      display: ['none', null, 'flex'],
       flexDirection: 'column',
       alignItems: 'center',
       justifyItems: 'center',
@@ -89,6 +90,6 @@ const Footer = ({ locale }) => (
         </li>
       </Flex>
     </Flex>
-  </Flex>
+  </Box>
 );
 export default Footer;

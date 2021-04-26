@@ -5,7 +5,7 @@ export const categories = {
   ar: 'التصنيفات',
   fr: 'catégories',
 };
-export const about = { en: 'about', ar: 'عن الصفحة', fr: 'À propos de moi' };
+export const about = { en: 'about', ar: 'عن الصفحة', fr: 'propos de' };
 export const contact = { en: 'contact', ar: 'تواصل', fr: 'contact' };
 export const toggle = {
   en: 'toggle mode',
@@ -21,4 +21,9 @@ export const home = {
   en: 'home',
   ar: 'الرئيسية',
   fr: 'domicile',
+};
+export const settings = {
+  en: 'settings',
+  ar: 'الأعدادات',
+  fr: 'paramètres',
 };

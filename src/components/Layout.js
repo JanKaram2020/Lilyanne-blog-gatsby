@@ -4,12 +4,9 @@ import React from 'react';
 import BottomNav from './BottomNav';
 import Footer from './Footer';
 import TopNav from './TopNav';
-import { useScrollDirection } from '../helpers';
 
 const Layout = ({ children }) => {
   const { locale } = useLocalization();
-  const dir = useScrollDirection();
-  console.log(dir);
   return (
     // eslint-disable-next-line react/jsx-pascal-case
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>

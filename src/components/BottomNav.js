@@ -1,19 +1,28 @@
 /** @jsx jsx */
-import { Flex, NavLink, jsx } from 'theme-ui';
+import { Flex, Link as BottomLink, jsx } from 'theme-ui';
 import { Link } from 'gatsby';
 import { LocalizedLink } from 'gatsby-theme-i18n';
+import {
+  AiFillHome,
+  AiFillBook,
+  AiFillContacts,
+  AiFillMail,
+  AiFillSetting,
+} from 'react-icons/ai';
 import { useScrollDirection } from '../helpers';
 import ColorModeToggle from './ColorButton';
 import {
   home,
   blog,
-  about,
   contact,
+  about,
   toggle,
+  settings,
 } from '../translations/Nav.transaltion';
 
 const BottomNav = ({ locale }) => {
   const dir = useScrollDirection({ initialDirection: 'up' });
+  console.log(dir);
   return (
     <Flex
       as="nav"
@@ -31,7 +40,7 @@ const BottomNav = ({ locale }) => {
         justifyContent: 'space-between',
         flexWrap: 'wrap',
         flexDirection: ['column', 'column', 'row'],
-        transitionDuration: '2s',
+        borderTop: '5px solid rgba(0,0,0,0.1)',
       }}
     >
       <Flex
@@ -39,72 +48,43 @@ const BottomNav = ({ locale }) => {
         sx={{
           listStyle: 'none',
           p: 0,
-          alignItems: 'center',
-          justifyItems: 'center',
-          justifyContent: 'space-between',
+          // alignItems: 'center',
+          // justifyItems: 'center',
+          // justifyContent: 'space-between',
           gap: '10px',
           flexWrap: 'wrap',
           flexDirection: 'row',
         }}
       >
         <li>
-          <NavLink as={LocalizedLink} to="/">
+          <BottomLink variant="bottom" as={LocalizedLink} to="/">
+            <AiFillHome size={35} />
             {home[locale]}
-          </NavLink>
+          </BottomLink>
         </li>
         <li>
-          <NavLink as={LocalizedLink} to="/blog">
+          <BottomLink variant="bottom" as={LocalizedLink} to="/blog">
+            <AiFillBook size={35} />
             {blog[locale]}
-          </NavLink>
+          </BottomLink>
         </li>
         <li>
-          <NavLink as={LocalizedLink} to="/about">
+          <BottomLink variant="bottom" as={LocalizedLink} to="/about">
+            <AiFillContacts size={35} />
             {about[locale]}
-          </NavLink>
+          </BottomLink>
         </li>
         <li>
-          <NavLink as={LocalizedLink} to="/contact">
+          <BottomLink variant="bottom" as={LocalizedLink} to="/contact">
+            <AiFillMail size={35} />
             {contact[locale]}
-          </NavLink>
+          </BottomLink>
         </li>
-      </Flex>
-      <Flex
-        sx={{
-          listStyle: 'none',
-          p: 0,
-          justifySelf: 'flex-end',
-          alignItems: 'center',
-          justifyItems: 'center',
-          gap: '10px',
-          flexWrap: 'wrap',
-        }}
-        as="ul"
-      >
-        {locale !== 'ar' && (
-          <li>
-            <NavLink as={Link} to="/ar">
-              عربي
-            </NavLink>
-          </li>
-        )}
-        {locale !== 'en' && (
-          <li>
-            <NavLink as={Link} to="/">
-              English
-            </NavLink>
-          </li>
-        )}
-        {locale !== 'fr' && (
-          <li>
-            <NavLink as={Link} to="/fr">
-              Français
-            </NavLink>
-          </li>
-        )}
         <li>
-          <ColorModeToggle>
-            <NavLink as={Flex}>{toggle[locale]}</NavLink>
-          </ColorModeToggle>
+          <BottomLink variant="bottom" as={LocalizedLink} to="/settings">
+            <AiFillSetting size={35} />
+            {settings[locale]}
+          </BottomLink>
         </li>
       </Flex>
     </Flex>

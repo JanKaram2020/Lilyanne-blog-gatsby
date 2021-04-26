@@ -321,7 +321,7 @@ export default {
     nav: {
       color: 'text',
       fontFamily: 'heading',
-      fontSize: [2, 3],
+      fontSize: 3,
       transitionDuration: '0.2s',
       textTransform: 'capitalize',
       ':hover': {
@@ -343,6 +343,29 @@ export default {
         color: 'primary',
       },
       textDecoration: 'none',
+    },
+    bottom: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyItems: 'center',
+      color: 'text',
+      fontFamily: 'heading',
+      fontSize: 2,
+      transitionDuration: '0.2s',
+      textTransform: 'capitalize',
+      textDecoration: 'none',
+      py: 10,
+      ':hover': {
+        color: 'primary',
+        cursor: 'pointer',
+      },
+      '&[aria-current]': {
+        color: 'primary',
+      },
+      ':active': {
+        transform: 'scale(0.9)',
+      },
     },
   },
   images: {
