@@ -8,6 +8,7 @@ import Logo from '../components/Logo';
 import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
+import TypedSentence from '../components/Typed';
 import { see, latest } from '../translations/index.translation';
 // TODO consider refactoring all languages to use source form sanity
 // TODO consider adding suggestions for other articles in bottom of an article
@@ -56,6 +57,12 @@ const IndexPage = ({ data }) => {
           </div>
         </Grid>
       </Flex>
+      <span>
+        this is something &nbsp;
+        <TypedSentence
+          sentence={['this is me', 'this is something', 'this jan karam']}
+        />
+      </span>
       <Flex
         sx={{
           flexDirection: 'column',

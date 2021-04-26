@@ -20,9 +20,7 @@ const Post = ({ post }) => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        // maxWidth: '500px',
         py: 20,
-        // mx: 20,
       }}
     >
       <BaseStyles>
