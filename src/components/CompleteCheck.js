@@ -3,11 +3,6 @@ import { jsx, useColorMode, Flex } from 'theme-ui';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
 import {
-  AiOutlineTwitter,
-  AiOutlineFacebook,
-  AiOutlineInstagram,
-} from 'react-icons/ai';
-import {
   motion,
   useViewportScroll,
   useSpring,
