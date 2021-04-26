@@ -41,6 +41,7 @@ const Post = ({ post }) => {
         <PortableText blocks={text} />
         <Divider />
       </BaseStyles>
+      <h1> if you liked this article share it</h1>
     </Flex>
   );
 };

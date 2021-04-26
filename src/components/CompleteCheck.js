@@ -1,7 +1,12 @@
 /** @jsx jsx */
-import { jsx, useColorMode } from 'theme-ui';
+import { jsx, useColorMode, Flex } from 'theme-ui';
 import * as React from 'react';
 import { useEffect, useState } from 'react';
+import {
+  AiOutlineTwitter,
+  AiOutlineFacebook,
+  AiOutlineInstagram,
+} from 'react-icons/ai';
 import {
   motion,
   useViewportScroll,
@@ -10,7 +15,7 @@ import {
 } from 'framer-motion';
 import Theme from '../gatsby-plugin-theme-ui';
 
-export const Example = () => {
+const CompleteCheck = () => {
   const [colorMode] = useColorMode();
   const dark = colorMode === 'dark';
   const color = dark ? Theme.colors.modes.dark.primary : Theme.colors.primary;
@@ -22,17 +27,24 @@ export const Example = () => {
   useEffect(() => yRange.onChange((v) => setIsComplete(v >= 1)), [yRange]);
 
   return (
-    <>
+    <Flex
+      as="aside"
+      sx={{
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyItems: 'center',
+        position: 'fixed',
+        top: ['10px', null, '90px'],
+        left: ['10px', null, '20px'],
+        zIndex: 10,
+      }}
+    >
       <svg
-        sx={{
-          position: 'fixed',
-          top: ['10px', null, '20px'],
-          left: ['10px', null, '20px'],
-          width: ['70px', null, '120px'],
-          height: ['70px', null, '120px'],
-          zIndex: 10,
-        }}
         viewBox="0 0 60 60"
+        sx={{
+          width: ['70px', null, '80px'],
+          height: ['70px', null, '80px'],
+        }}
       >
         <motion.path
           fill="none"
@@ -58,6 +70,7 @@ export const Example = () => {
           animate={{ pathLength: isComplete ? 1 : 0 }}
         />
       </svg>
-    </>
+    </Flex>
   );
 };
+export default CompleteCheck;

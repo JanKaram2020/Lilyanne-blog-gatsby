@@ -1,7 +1,7 @@
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
 import { graphql } from 'gatsby';
-import { Example } from '../components/CompleteSvg';
+import CompleteCheck from '../components/CompleteCheck';
 import Layout from '../components/Layout';
 import Post from '../components/Post';
 import SEO from '../components/Seo';
@@ -19,7 +19,7 @@ const PostPage = ({ data }) => {
         image={post.mainImage.asset.url}
       />
       <Layout>
-        <Example />
+        <CompleteCheck />
         {locale === 'fr' && post.language === 'fr' ? (
           <Post post={post} lang="fr" />
         ) : (

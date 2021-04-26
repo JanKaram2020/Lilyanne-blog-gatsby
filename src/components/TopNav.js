@@ -6,16 +6,11 @@ import ColorModeToggle from './ColorButton';
 import Logo from './Logo';
 import { blog, about, contact, toggle } from '../translations/Nav.transaltion';
 
-const Nav = ({ locale }) => (
+const TopNav = ({ locale }) => (
   <Flex
     as="nav"
     sx={{
-      // display: ['none', null, 'flex'],
-      zIndex: 20,
-      width: ['100%', 'null', 'auto'],
-      overflow: ['hidden', 'null', 'auto'],
-      position: ['fixed', 'null', 'static'],
-      bottom: [0, 'null', 'auto'],
+      display: ['none', null, 'flex'],
       bg: 'darken',
       alignItems: 'center',
       justifyItems: 'center',
@@ -110,4 +105,4 @@ const Nav = ({ locale }) => (
     </Flex>
   </Flex>
 );
-export default Nav;
+export default TopNav;

@@ -67,7 +67,7 @@ export default {
   },
   space: [0, 4, 8, 16, 24, 32],
   zIndices: [],
-  breakpoints: ['640px', '768px', '1024', '1280'],
+  breakpoints: ['640px', '768px', '1024px', '1280px'],
   styles: {
     root: {
       fontSize: 2,

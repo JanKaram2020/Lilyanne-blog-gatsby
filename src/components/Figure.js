@@ -16,12 +16,13 @@ const Figure = ({ node }) => {
   }
 
   return (
-    <figure>
+    <figure sx={{ m: 0, p: 0 }}>
       <GatsbyImage
         image={gatsbyImageData}
         alt={`${node.alt}`}
         sx={{
           filter: colorMode === 'dark' && 'brightness(85%)',
+          maxWidth: '65ch',
         }}
       />
       {node.caption && <figcaption>{node.caption}</figcaption>}

@@ -21,6 +21,7 @@ const Footer = ({ locale }) => (
       justifyItems: 'center',
       bg: 'darken',
       p: '10px',
+      paddingBottom: ['10vh', '10px'],
     }}
   >
     <Flex sx={{ width: ['250px', '300px', '350px'] }}>
