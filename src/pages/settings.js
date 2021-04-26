@@ -2,11 +2,11 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { useLocalization } from 'gatsby-theme-i18n';
-import { jsx, Flex, Link as BottomLink, Grid, NavLink } from 'theme-ui';
+import { jsx, Flex, Link as BottomLink } from 'theme-ui';
 import ColorModeToggle from '../components/ColorButton';
 import Layout from '../components/Layout';
 import Logo from '../components/Logo';
-import { toggle } from '../translations/Nav.transaltion';
+import { toggle, language } from '../translations/Nav.transaltion';
 
 export default function SettingsPage() {
   const { locale } = useLocalization();
@@ -29,7 +29,7 @@ export default function SettingsPage() {
         >
           <Logo />
         </figure>
-        <h1 sx={{ p: 0, m: 0 }}> Language</h1>
+        <h1 sx={{ p: 0, m: 0 }}>{language[locale]}</h1>
         <Flex
           as="ul"
           sx={{

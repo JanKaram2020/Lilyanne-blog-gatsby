@@ -27,3 +27,8 @@ export const settings = {
   ar: 'الأعدادات',
   fr: 'paramètres',
 };
+export const language = {
+  en: 'language',
+  ar: 'اللغة',
+  fr: 'langgggg',
+};
