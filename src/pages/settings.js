@@ -13,10 +13,11 @@ export default function SettingsPage() {
   return (
     <Layout>
       <Flex
+        as="section"
         sx={{
           flexDirection: 'column',
-          justifyItems: 'center',
           alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <figure

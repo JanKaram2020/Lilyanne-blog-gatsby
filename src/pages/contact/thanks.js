@@ -1,6 +1,6 @@
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
-import { Flex } from 'theme-ui';
+import { Flex, Heading } from 'theme-ui';
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
 import { thanks } from '../../translations/thanks.translation';
@@ -19,7 +19,7 @@ const ThanksPage = () => {
           justifyContent: 'center',
         }}
       >
-        <h1>{thanks[locale]}</h1>
+        <Heading as="h1">{thanks[locale]}</Heading>
       </Flex>
     </Layout>
   );

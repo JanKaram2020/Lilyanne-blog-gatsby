@@ -9,7 +9,17 @@ import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
 import TypedSentence from '../components/Typed';
-import { see, latest, contact } from '../translations/index.translation';
+import {
+  see,
+  latest,
+  contact,
+  hi,
+  name,
+  translator,
+  writer,
+  teacher,
+  iam,
+} from '../translations/index.translation';
 // TODO consider refactoring all languages to use source form sanity
 // TODO consider adding suggestions for other articles in bottom of an article
 // markup
@@ -33,7 +43,14 @@ const IndexPage = ({ data }) => {
           mx: '-10px',
         }}
       >
-        <Flex sx={{ alignItems: ' center', justifyContent: 'center' }}>
+        <Flex
+          sx={{
+            display: ['none', null, 'flex'],
+            width: '20vw',
+            alignItems: ' center',
+            justifyContent: 'center',
+          }}
+        >
           <StaticImage
             src="../images/trans.png"
             alt="Lilyanne Hany"
@@ -46,10 +63,12 @@ const IndexPage = ({ data }) => {
             flexDirection: 'column',
             alignItems: ' center',
             justifyContent: 'center',
+            width: ['80vw', null, '20vw'],
+            gap: '10px',
           }}
         >
           <Heading as="h1">
-            Hi I'm <span sx={{ display: 'none' }}> Lilyanne Hany</span>
+            {hi[locale]} <span sx={{ display: 'none' }}> {name[locale]}</span>
           </Heading>
           <Icon
             style={{
@@ -57,11 +76,17 @@ const IndexPage = ({ data }) => {
             }}
           />
           <Heading variant="h2">
-            I am a &nbsp;
+            {iam[locale]} &nbsp;
             <span sx={{ display: 'none' }}>
-              writer , translator and teacher
+              {writer[locale]} , {translator[locale]}, {teacher[locale]}
             </span>
-            <TypedSentence sentence={['translator.', 'writer.', 'teacher.']} />
+            <TypedSentence
+              sentence={[
+                `${writer[locale]}`,
+                `${translator[locale]}`,
+                `${teacher[locale]}`,
+              ]}
+            />
           </Heading>
           <Button as={LocalizedLink} to="/contact">
             {contact[locale]}
