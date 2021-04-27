@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { LocalizedLink } from 'gatsby-theme-i18n';
-import { BaseStyles, jsx, Divider, useColorMode, Flex } from 'theme-ui';
+import { BaseStyles, jsx, Divider, useColorMode, Flex, Card } from 'theme-ui';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import PortableText from './PortableText';
@@ -14,7 +14,7 @@ const Post = ({ post }) => {
   const author = post.author.name[lang];
   const image = getImage(post.mainImage.asset);
   return (
-    <Flex
+    <Card
       as="article"
       sx={{
         flexDirection: 'column',
@@ -40,7 +40,7 @@ const Post = ({ post }) => {
         <Divider />
       </BaseStyles>
       <h1> if you liked this article share it</h1>
-    </Flex>
+    </Card>
   );
 };
 export default Post;

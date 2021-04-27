@@ -3,9 +3,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql } from 'gatsby';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
-import { Button, Flex, Heading, Grid, jsx } from 'theme-ui';
+import { Button, Flex, Heading, jsx } from 'theme-ui';
 import Layout from '../components/Layout';
-import Logo from '../components/Logo';
 import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
@@ -49,18 +48,21 @@ const IndexPage = ({ data }) => {
             justifyContent: 'center',
           }}
         >
-          <h1 sx={{ p: 0, m: 0 }}>
+          <Heading as="h1">
             Hi I'm <span sx={{ display: 'none' }}> Lilyanne Hany</span>
-          </h1>
+          </Heading>
           <Icon
             style={{
               width: '200px',
             }}
           />
-          <h3 sx={{ p: 0, m: 0 }}>
+          <Heading variant="h2">
             I am a &nbsp;
+            <span sx={{ display: 'none' }}>
+              writer , translator and teacher
+            </span>
             <TypedSentence sentence={['translator.', 'writer.', 'teacher.']} />
-          </h3>
+          </Heading>
           <Button as={LocalizedLink} to="/contact">
             {contact[locale]}
           </Button>
@@ -75,9 +77,7 @@ const IndexPage = ({ data }) => {
         }}
         as="section"
       >
-        <Heading as="h1" sx={{ textAlign: 'center' }}>
-          {latest[locale]}
-        </Heading>
+        <Heading sx={{ textAlign: 'center' }}>{latest[locale]}</Heading>
         <Flex
           sx={{
             flexDirection: ['column', 'row'],

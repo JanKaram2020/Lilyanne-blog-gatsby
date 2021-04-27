@@ -1,6 +1,6 @@
 import { useLocalization } from 'gatsby-theme-i18n';
 import React from 'react';
-import { Flex } from 'theme-ui';
+import { Card, Flex, Heading, Text } from 'theme-ui';
 import Layout from '../components/Layout';
 import SEO from '../components/Seo';
 import { about as title } from '../translations/Nav.transaltion';
@@ -95,16 +95,29 @@ const AboutPage = () => {
       <SEO title={title[locale]} lang={locale} />
       <Layout>
         <Flex
-          as="article"
+          as="section"
           sx={{
+            display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            py: 20,
           }}
         >
-          <h1> {title[locale]}</h1>
-          <p style={{ maxWidth: '65ch' }}>{text[locale]}</p>
+          <Card
+            as="article"
+            sx={
+              {
+                // flexDirection: 'column',
+                // alignItems: 'center',
+                // justifyContent: 'center',
+                // py: 20,
+                // maxHeight: '100vh',
+              }
+            }
+          >
+            <Heading as="h1"> {title[locale]}</Heading>
+            <Text style={{}}>{text[locale]}</Text>
+          </Card>
         </Flex>
       </Layout>
     </main>

@@ -30,15 +30,9 @@ const PostPreview = ({ post }) => {
   return (
     <Card
       sx={{
-        display: 'grid',
         gridTemplateColumns: '1fr',
         gridTemplateRows: ['2fr 0.5fr 0.5fr', null, '2fr 1fr 0.5fr'],
-        gap: '10px',
-        padding: 10,
         paddingBottom: 0,
-        maxWidth: '500px',
-        maxHeight: '695px',
-        borderRadius: '10px',
       }}
     >
       <Grid

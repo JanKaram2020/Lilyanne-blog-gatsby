@@ -315,6 +315,7 @@ export default {
     heading: {
       fontFamily: 'heading',
       fontSize: 5,
+      maxWidth: '65ch',
     },
   },
   links: {
@@ -373,10 +374,17 @@ export default {
   },
   cards: {
     primary: {
-      marginTop: 20,
+      display: 'grid',
+      gap: '10px',
+      p: 10,
+      m: 10,
       color: 'text',
       boxShadow: 0,
       backgroundColor: 'darken',
+      borderRadius: '10px',
+      maxWidth: '65ch',
+      // maxHeight: '695px',
+      width: '80vw',
     },
   },
   layout: {
@@ -388,6 +396,7 @@ export default {
       alignItems: 'center',
       fontWeight: 'bold',
       marginBottom: 2,
+      textTransform: 'capitalize',
     },
     input: {
       color: 'text',

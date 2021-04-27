@@ -63,18 +63,10 @@ class Index extends React.Component {
           data-netlify="true"
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            width: '80vw',
-            maxWidth: '65ch',
-            backgroundColor: 'darken',
-            p: 10,
-            borderRadius: '10px',
-          }}
         >
-          <Heading py="10px">{contact[locale]} </Heading>
+          <Heading sx={{ textTransform: 'capitalize' }}>
+            {contact[locale]}{' '}
+          </Heading>
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <Input type="hidden" name="form-name" value="contact" />
           <div hidden>
