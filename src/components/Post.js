@@ -1,6 +1,13 @@
 /** @jsx jsx */
-import { LocalizedLink } from 'gatsby-theme-i18n';
-import { BaseStyles, jsx, Divider, useColorMode, Flex, Card } from 'theme-ui';
+import {
+  BaseStyles,
+  jsx,
+  Divider,
+  useColorMode,
+  Flex,
+  Card,
+  Heading,
+} from 'theme-ui';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
 
 import PortableText from './PortableText';
@@ -11,22 +18,23 @@ const Post = ({ post }) => {
   const text = post._rawBody;
   const { categories } = post;
   const { title } = post;
-  const author = post.author.name[lang];
   const image = getImage(post.mainImage.asset);
   return (
-    <Card
-      as="article"
+    <Flex
+      as="section"
       sx={{
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        py: 20,
       }}
     >
       <BaseStyles>
-        <h2>{title}</h2>
-        <h3>{author}</h3>
-        <h3>{categories.title[lang]}</h3>
+        <Heading variant="h1" as="h1">
+          {title}
+        </Heading>
+        <Heading variant="h3" as="h3">
+          {categories.title[lang]}
+        </Heading>
         <GatsbyImage
           image={image}
           alt={title}
@@ -39,8 +47,10 @@ const Post = ({ post }) => {
         <PortableText blocks={text} />
         <Divider />
       </BaseStyles>
-      <h1> if you liked this article share it</h1>
-    </Card>
+      <Heading variant="h3" as="h3">
+        if you liked this article share it
+      </Heading>
+    </Flex>
   );
 };
 export default Post;

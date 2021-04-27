@@ -22,7 +22,6 @@ const Footer = ({ locale }) => (
       justifyItems: 'center',
       bg: 'darken',
       p: '10px',
-      paddingBottom: ['10vh', '10px'],
       borderTopLeftRadius: '10px',
       borderTopRightRadius: '10px',
     }}
