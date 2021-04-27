@@ -41,12 +41,12 @@ const IndexPage = ({ data }) => {
           backgroundColor: 'darken',
           borderRadius: '10px',
           mx: '-10px',
+          py: ['10px', null, 0],
         }}
       >
         <Flex
           sx={{
             display: ['none', null, 'flex'],
-            width: '20vw',
             alignItems: ' center',
             justifyContent: 'center',
           }}
@@ -63,7 +63,6 @@ const IndexPage = ({ data }) => {
             flexDirection: 'column',
             alignItems: ' center',
             justifyContent: 'center',
-            width: ['80vw', null, '20vw'],
             gap: '10px',
           }}
         >

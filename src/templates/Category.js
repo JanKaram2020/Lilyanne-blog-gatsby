@@ -1,16 +1,15 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import { useLocalization } from 'gatsby-theme-i18n';
-import { Flex, Heading } from 'theme-ui';
+import { Flex, Heading, Text } from 'theme-ui';
 import Layout from '../components/Layout';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
-// TODO consider refactoring all languages to use source form sanity
-// TODO consider adding suggestions for other articles in bottom of an article
-// markup
+
 const CategoryPage = ({ data }) => {
   const { locale } = useLocalization();
   const posts = data.allSanityPost.nodes;
+  const category = data.sanityCategory;
   const currentPosts = posts.filter((post) => post.language === locale);
   return (
     <Layout>
@@ -25,8 +24,9 @@ const CategoryPage = ({ data }) => {
         as="section"
       >
         <Heading as="h1" sx={{ textAlign: 'center' }}>
-          {data.sanityCategory.title[locale]}
+          {category.title[locale]}
         </Heading>
+        <Text> {category.description[locale]}</Text>
         <Flex
           sx={{
             flexDirection: ['column', 'row'],
@@ -48,6 +48,11 @@ export const query = graphql`
   query($slug: String!) {
     sanityCategory(slug: { current: { eq: $slug } }) {
       title {
+        ar
+        en
+        fr
+      }
+      description {
         ar
         en
         fr
