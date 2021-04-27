@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql } from 'gatsby';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
@@ -9,7 +10,7 @@ import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
 import TypedSentence from '../components/Typed';
-import { see, latest } from '../translations/index.translation';
+import { see, latest, contact } from '../translations/index.translation';
 // TODO consider refactoring all languages to use source form sanity
 // TODO consider adding suggestions for other articles in bottom of an article
 // markup
@@ -22,47 +23,49 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO lang={locale} />
-      <Flex sx={{ alignItems: ' center', justifyContent: 'center' }}>
-        <Grid
+      <Flex
+        sx={{
+          alignItems: ' center',
+          justifyContent: 'center',
+          flexWrap: 'wrap',
+          gap: '10px',
+          backgroundColor: 'darken',
+          borderRadius: '10px',
+          mx: '-10px',
+        }}
+      >
+        <Flex sx={{ alignItems: ' center', justifyContent: 'center' }}>
+          <StaticImage
+            src="../images/trans.png"
+            alt="Lilyanne Hany"
+            height={250}
+            layout="fixed"
+          />
+        </Flex>
+        <Flex
           sx={{
-            gridTemplateColumns: '1fr',
-            gridTemplateRows: '1fr',
-            width: '350px',
+            flexDirection: 'column',
+            alignItems: ' center',
+            justifyContent: 'center',
           }}
         >
-          <div
+          <h1 sx={{ p: 0, m: 0 }}>
+            Hi I'm <span sx={{ display: 'none' }}> Lilyanne Hany</span>
+          </h1>
+          <Icon
             style={{
-              gridArea: '1 / 1 / 2 / 3',
-              width: '350px',
-              height: '180px',
-              zIndex: '1',
+              width: '200px',
             }}
-          >
-            <Logo />
-          </div>
-          <div
-            sx={{
-              gridArea: '1 / 1 / 2 / 3',
-              width: '350px',
-              height: '196px',
-              zIndex: '2',
-            }}
-          >
-            <Icon
-              style={{
-                width: '350px',
-                height: '196px',
-              }}
-            />
-          </div>
-        </Grid>
+          />
+          <h3 sx={{ p: 0, m: 0 }}>
+            I am a &nbsp;
+            <TypedSentence sentence={['translator.', 'writer.', 'teacher.']} />
+          </h3>
+          <Button as={LocalizedLink} to="/contact">
+            {contact[locale]}
+          </Button>
+        </Flex>
       </Flex>
-      <span>
-        this is something &nbsp;
-        <TypedSentence
-          sentence={['this is me', 'this is something', 'this jan karam']}
-        />
-      </span>
       <Flex
         sx={{
           flexDirection: 'column',

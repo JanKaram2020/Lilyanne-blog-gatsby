@@ -23,6 +23,8 @@ const Footer = ({ locale }) => (
       bg: 'darken',
       p: '10px',
       paddingBottom: ['10vh', '10px'],
+      borderTopLeftRadius: '10px',
+      borderTopRightRadius: '10px',
     }}
   >
     <Flex sx={{ width: ['250px', '300px', '350px'] }}>

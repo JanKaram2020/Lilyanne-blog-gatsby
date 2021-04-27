@@ -1,6 +1,6 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { Label, Input, Textarea, Button, Flex, Heading } from 'theme-ui';
+import { Label, Input, Textarea, Button, Flex, Card, Heading } from 'theme-ui';
 import { useLocalization } from 'gatsby-theme-i18n';
 import Layout from '../../components/Layout';
 import SEO from '../../components/Seo';
@@ -46,9 +46,16 @@ class Index extends React.Component {
   render() {
     const { locale } = this.props;
     return (
-      <section>
-        <Heading py="10px">{contact[locale]} </Heading>
-        <Flex
+      <Flex
+        as="section"
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      >
+        <Card
           as="form"
           name="contact"
           method="post"
@@ -57,10 +64,17 @@ class Index extends React.Component {
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
           sx={{
+            display: 'flex',
             flexDirection: 'column',
             gap: '10px',
+            width: '80vw',
+            maxWidth: '65ch',
+            backgroundColor: 'darken',
+            p: 10,
+            borderRadius: '10px',
           }}
         >
+          <Heading py="10px">{contact[locale]} </Heading>
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <Input type="hidden" name="form-name" value="contact" />
           <div hidden>
@@ -103,8 +117,8 @@ class Index extends React.Component {
           <Flex>
             <Button type="submit">{submit[locale]}</Button>
           </Flex>
-        </Flex>
-      </section>
+        </Card>
+      </Flex>
     );
   }
 }

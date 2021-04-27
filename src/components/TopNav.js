@@ -18,6 +18,8 @@ const TopNav = ({ locale }) => (
       justifyContent: 'space-between',
       flexWrap: 'wrap',
       flexDirection: ['column', 'column', 'row'],
+      borderBottomLeftRadius: '10px',
+      borderBottomRightRadius: '10px',
     }}
   >
     <Flex

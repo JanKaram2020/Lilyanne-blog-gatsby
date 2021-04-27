@@ -8,3 +8,8 @@ export const latest = {
   en: 'Latest Stories',
   fr: 'derniers articles',
 };
+export const contact = {
+  ar: 'تواصل معي',
+  en: "Let's talk",
+  fr: 'contact moi',
+};

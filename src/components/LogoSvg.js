@@ -7,9 +7,7 @@ export function Icon({ style }) {
   const [colorMode] = useColorMode();
   const dark = colorMode === 'dark';
   const color = dark ? Theme.colors.modes.dark.primary : Theme.colors.primary;
-  const bgColor = dark
-    ? Theme.colors.modes.dark.background
-    : Theme.colors.background;
+  const bgColor = dark ? Theme.colors.modes.dark.darken : Theme.colors.darken;
   const initialColor = dark ? `rgba(0,204,255,0)` : `rgba(255,97,60,0)`;
   return (
     <LazyMotion features={domAnimation} strict>
