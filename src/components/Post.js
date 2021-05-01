@@ -5,12 +5,11 @@ import {
   Divider,
   useColorMode,
   Flex,
-  Card,
   Heading,
 } from 'theme-ui';
 import { getImage, GatsbyImage } from 'gatsby-plugin-image';
-
 import PortableText from './PortableText';
+import { share } from '../translations/Post.translation';
 
 const Post = ({ post }) => {
   const lang = post.language;
@@ -48,7 +47,7 @@ const Post = ({ post }) => {
         <Divider />
       </BaseStyles>
       <Heading variant="h3" as="h3">
-        if you liked this article share it
+        {share[lang]}
       </Heading>
     </Flex>
   );
