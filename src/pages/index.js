@@ -3,7 +3,7 @@ import { StaticImage } from 'gatsby-plugin-image';
 import React from 'react';
 import { graphql } from 'gatsby';
 import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
-import { Button, Flex, Heading, jsx } from 'theme-ui';
+import { Button, Flex, Heading, jsx, useColorMode } from 'theme-ui';
 import Layout from '../components/Layout';
 import { Icon } from '../components/LogoSvg';
 import PostPreview from '../components/PostPreview';
@@ -25,6 +25,7 @@ import {
 // markup
 const IndexPage = ({ data }) => {
   const { locale } = useLocalization();
+  const [colorMode] = useColorMode();
   const posts = data.allSanityPost.nodes;
   const currentPosts = posts
     .filter((post) => post.language === locale)
@@ -56,6 +57,9 @@ const IndexPage = ({ data }) => {
             alt="Lilyanne Hany"
             height={250}
             layout="fixed"
+            imgStyle={{
+              filter: colorMode === 'dark' && 'brightness(85%)',
+            }}
           />
         </Flex>
         <Flex
