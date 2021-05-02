@@ -46,15 +46,7 @@ class Index extends React.Component {
   render() {
     const { locale } = this.props;
     return (
-      <Flex
-        as="section"
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <Flex variant="flex.centerColumn" as="section">
         <Card
           as="form"
           name="contact"
@@ -64,9 +56,7 @@ class Index extends React.Component {
           data-netlify-honeypot="bot-field"
           onSubmit={this.handleSubmit}
         >
-          <Heading sx={{ textTransform: 'capitalize' }}>
-            {contact[locale]}{' '}
-          </Heading>
+          <Heading>{contact[locale]} </Heading>
           {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
           <Input type="hidden" name="form-name" value="contact" />
           <div hidden>

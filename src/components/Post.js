@@ -19,14 +19,7 @@ const Post = ({ post }) => {
   const { title } = post;
   const image = getImage(post.mainImage.asset);
   return (
-    <Flex
-      as="section"
-      sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
+    <Flex variant="flex.centerColumn" as="section">
       <BaseStyles>
         <Heading variant="h1" as="h1">
           {title}

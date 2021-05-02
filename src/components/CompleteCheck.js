@@ -24,10 +24,8 @@ const CompleteCheck = () => {
   return (
     <Flex
       as="aside"
+      variant="flex.centerColumn"
       sx={{
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyItems: 'center',
         position: 'fixed',
         top: ['10px', null, '90px'],
         left: ['10px', null, '20px'],

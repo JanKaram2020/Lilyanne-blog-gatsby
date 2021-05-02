@@ -14,26 +14,15 @@ const CategoryPage = ({ data }) => {
   return (
     <Layout>
       <SEO lang={locale} />
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyItems: 'center',
-          gap: '10px',
-        }}
-        as="section"
-      >
+      <Flex variant="flex.centerColumn" as="section">
         <Heading as="h1" sx={{ textAlign: 'center' }}>
           {category.title[locale]}
         </Heading>
         <Text> {category.description[locale]}</Text>
         <Flex
+          variant="flex.centerColumn"
           sx={{
             flexDirection: ['column', 'row'],
-            flexWrap: 'wrap',
-            gap: '10px',
-            alignContent: 'center',
-            justifyContent: 'center',
           }}
         >
           {currentPosts.map((post, i) => (

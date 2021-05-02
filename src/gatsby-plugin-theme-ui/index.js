@@ -261,7 +261,25 @@ export default {
     },
   },
   box: {},
-  flex: {},
+  flex: {
+    default: {
+      gap: '10px',
+      flexWrap: 'wrap',
+    },
+    center: {
+      alignItems: ' center',
+      justifyContent: 'center',
+      flexWrap: 'wrap',
+      gap: '10px',
+    },
+    centerColumn: {
+      flexWrap: 'wrap',
+      flexDirection: 'column',
+      alignItems: ' center',
+      justifyContent: 'center',
+      gap: '10px',
+    },
+  },
   grids: {},
   buttons: {
     primary: {
@@ -313,6 +331,7 @@ export default {
   text: {
     text: {},
     heading: {
+      textTransform: 'capitalize',
       fontFamily: 'heading',
       fontSize: 5,
       maxWidth: '65ch',

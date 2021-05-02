@@ -98,12 +98,7 @@ const PostPreview = ({ post }) => {
           <h3 sx={{ margin: 0, padding: 0 }}> {publishedAt}</h3>
         </Flex>
       </Grid>
-      <Flex
-        sx={{
-          alignItems: 'center',
-          justifyItems: 'center',
-        }}
-      >
+      <Flex variant="flex.center">
         <Text>{`${toPlainText(postBody).slice(0, 300)}...`}</Text>
       </Flex>
       <Flex>

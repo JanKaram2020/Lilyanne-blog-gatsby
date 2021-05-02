@@ -10,15 +10,7 @@ const ThanksPage = () => {
   return (
     <Layout>
       <SEO title={thanks[locale]} />
-      <Flex
-        as="section"
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-        }}
-      >
+      <Flex variant="flex.centerColumn" as="section">
         <Heading as="h1">{thanks[locale]}</Heading>
       </Flex>
     </Layout>

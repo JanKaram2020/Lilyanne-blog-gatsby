@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { Flex, Link as BottomLink, jsx } from 'theme-ui';
-import { Link } from 'gatsby';
 import { LocalizedLink } from 'gatsby-theme-i18n';
 import {
   AiFillHome,
@@ -10,19 +9,16 @@ import {
   AiFillSetting,
 } from 'react-icons/ai';
 import { useScrollDirection } from '../helpers';
-import ColorModeToggle from './ColorButton';
 import {
   home,
   blog,
   contact,
   about,
-  toggle,
   settings,
 } from '../translations/Nav.transaltion';
 
 const BottomNav = ({ locale }) => {
   const dir = useScrollDirection({ initialDirection: 'up' });
-  console.log(dir);
   return (
     <Flex
       as="nav"
@@ -45,14 +41,10 @@ const BottomNav = ({ locale }) => {
     >
       <Flex
         as="ul"
+        variant="flex.default"
         sx={{
           listStyle: 'none',
           p: 0,
-          // alignItems: 'center',
-          // justifyItems: 'center',
-          // justifyContent: 'space-between',
-          gap: '10px',
-          flexWrap: 'wrap',
           flexDirection: 'row',
         }}
       >

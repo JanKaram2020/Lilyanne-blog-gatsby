@@ -15,11 +15,9 @@ import {
 const Footer = ({ locale }) => (
   <Box
     as="footer"
+    variant="flex.centerColumn"
     sx={{
       display: ['none', null, 'flex'],
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyItems: 'center',
       bg: 'darken',
       p: '10px',
       borderTopLeftRadius: '10px',

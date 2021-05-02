@@ -94,27 +94,8 @@ const AboutPage = () => {
     <main style={{ direction: locale === 'ar' ? 'rtl' : 'ltr' }}>
       <SEO title={title[locale]} lang={locale} />
       <Layout>
-        <Flex
-          as="section"
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Card
-            as="article"
-            sx={
-              {
-                // flexDirection: 'column',
-                // alignItems: 'center',
-                // justifyContent: 'center',
-                // py: 20,
-                // maxHeight: '100vh',
-              }
-            }
-          >
+        <Flex variant="flex.centerColumn" as="section">
+          <Card as="article">
             <Heading as="h1"> {title[locale]}</Heading>
             <Text style={{}}>{text[locale]}</Text>
           </Card>

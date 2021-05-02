@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { LocalizedLink, useLocalization } from 'gatsby-theme-i18n';
-import { Flex, NavLink } from 'theme-ui';
+import { useLocalization } from 'gatsby-theme-i18n';
+import { Flex } from 'theme-ui';
 import Layout from '../components/Layout';
 import PostPreview from '../components/PostPreview';
 import SEO from '../components/Seo';
@@ -11,7 +11,6 @@ import { blog as title } from '../translations/Nav.transaltion';
 // markup
 const BlogPage = ({ data }) => {
   const { locale } = useLocalization();
-  const categories = data.allSanityCategory.nodes;
   const langPosts = data.allSanityPost.nodes.filter(
     (post) => post.language === locale
   );
@@ -19,12 +18,9 @@ const BlogPage = ({ data }) => {
     <Layout>
       <SEO lang={locale} title={title[locale]} />
       <Flex
+        variant="flex.center"
         sx={{
           flexDirection: ['column', 'row'],
-          flexWrap: 'wrap',
-          gap: '10px',
-          alignContent: 'center',
-          justifyContent: 'center',
         }}
         as="section"
       >

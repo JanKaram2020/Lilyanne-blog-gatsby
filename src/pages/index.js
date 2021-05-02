@@ -34,11 +34,8 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO lang={locale} />
       <Flex
+        variant="flex.center"
         sx={{
-          alignItems: ' center',
-          justifyContent: 'center',
-          flexWrap: 'wrap',
-          gap: '10px',
           backgroundColor: 'darken',
           borderRadius: '10px',
           mx: '-10px',
@@ -46,10 +43,9 @@ const IndexPage = ({ data }) => {
         }}
       >
         <Flex
+          variant="flex.center"
           sx={{
             display: ['none', null, 'flex'],
-            alignItems: ' center',
-            justifyContent: 'center',
           }}
         >
           <StaticImage
@@ -62,14 +58,7 @@ const IndexPage = ({ data }) => {
             }}
           />
         </Flex>
-        <Flex
-          sx={{
-            flexDirection: 'column',
-            alignItems: ' center',
-            justifyContent: 'center',
-            gap: '10px',
-          }}
-        >
+        <Flex variant="flex.centerColumn">
           <Heading as="h1">
             {hi[locale]} <span sx={{ display: 'none' }}> {name[locale]}</span>
           </Heading>
@@ -96,23 +85,12 @@ const IndexPage = ({ data }) => {
           </Button>
         </Flex>
       </Flex>
-      <Flex
-        sx={{
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyItems: 'center',
-          gap: '10px',
-        }}
-        as="section"
-      >
+      <Flex variant="flex.centerColumn" as="section">
         <Heading sx={{ textAlign: 'center' }}>{latest[locale]}</Heading>
         <Flex
+          variant="flex.center"
           sx={{
             flexDirection: ['column', 'row'],
-            flexWrap: 'wrap',
-            gap: '10px',
-            alignContent: 'center',
-            justifyContent: 'center',
           }}
         >
           {currentPosts.map((post, i) => (
